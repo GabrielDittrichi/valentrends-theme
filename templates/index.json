@@ -9,6 +9,110 @@
  */
 {
   "sections": {
+    "benefits": {
+      "type": "benefits-bar",
+      "blocks": {
+        "benefit1": {
+          "type": "benefit_item",
+          "settings": {
+            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\"></rect><line x1=\"2\" y1=\"10\" x2=\"22\" y2=\"10\"></line></svg>",
+            "text": "Parcelamento",
+            "bold_text": "Em até 6x sem juros*"
+          }
+        },
+        "benefit2": {
+          "type": "benefit_item",
+          "settings": {
+            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle></svg>",
+            "text": "Frete grátis",
+            "bold_text": "acima de R$900"
+          }
+        },
+        "benefit3": {
+          "type": "benefit_item",
+          "settings": {
+            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11\"></path><path d=\"M21 2v6h-6\"></path><path d=\"M21 3L11 13\"></path></svg>",
+            "text": "Primeira troca",
+            "bold_text": "Gratuita"
+          }
+        },
+        "benefit4": {
+          "type": "benefit_item",
+          "settings": {
+            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2v20\"></path><path d=\"M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"></path></svg>",
+            "text": "5% OFF",
+            "bold_text": "no PIX"
+          }
+        }
+      },
+      "block_order": [
+        "benefit1",
+        "benefit2",
+        "benefit3",
+        "benefit4"
+      ],
+      "settings": {
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "slideshow": {
+      "type": "valen-hero",
+      "blocks": {
+        "hero_slide_XCydeh": {
+          "type": "hero_slide",
+          "settings": {
+            "image": "shopify://shop_images/XT49753.jpg",
+            "image_mobile": "shopify://shop_images/XT49724.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "hero_slide_Va43yP": {
+          "type": "hero_slide",
+          "settings": {
+            "image": "shopify://shop_images/XT49753.jpg",
+            "image_mobile": "shopify://shop_images/XT49724.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_XCydeh",
+        "hero_slide_Va43yP"
+      ],
+      "settings": {
+        "layout": "full_width",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Apresentação de slides sobre nossa marca"
+      }
+    },
     "valen_hero_K8dmQE": {
       "type": "valen-hero",
       "blocks": {
@@ -72,6 +176,7 @@
         "hero_slide_zCydJe",
         "hero_slide_qeGGiY"
       ],
+      "disabled": true,
       "name": "Valen Hero",
       "settings": {
         "layout": "full_bleed",
@@ -81,68 +186,6 @@
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
-        "accessibility_info": "Apresentação de slides sobre nossa marca"
-      }
-    },
-    "benefits": {
-      "type": "benefits-bar",
-      "blocks": {
-        "benefit1": {
-          "type": "benefit_item",
-          "settings": {
-            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\"></rect><line x1=\"2\" y1=\"10\" x2=\"22\" y2=\"10\"></line></svg>",
-            "text": "Parcelamento",
-            "bold_text": "Em até 6x sem juros*"
-          }
-        },
-        "benefit2": {
-          "type": "benefit_item",
-          "settings": {
-            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle></svg>",
-            "text": "Frete grátis",
-            "bold_text": "acima de R$900"
-          }
-        },
-        "benefit3": {
-          "type": "benefit_item",
-          "settings": {
-            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11\"></path><path d=\"M21 2v6h-6\"></path><path d=\"M21 3L11 13\"></path></svg>",
-            "text": "Primeira troca",
-            "bold_text": "Gratuita"
-          }
-        },
-        "benefit4": {
-          "type": "benefit_item",
-          "settings": {
-            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2v20\"></path><path d=\"M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"></path></svg>",
-            "text": "5% OFF",
-            "bold_text": "no PIX"
-          }
-        }
-      },
-      "block_order": [
-        "benefit1",
-        "benefit2",
-        "benefit3",
-        "benefit4"
-      ],
-      "settings": {
-        "background_color": "#000000",
-        "text_color": "#ffffff",
-        "padding_top": 16,
-        "padding_bottom": 16
-      }
-    },
-    "slideshow": {
-      "type": "valen-hero",
-      "settings": {
-        "layout": "full_width",
-        "slide_height": "large",
-        "slider_visual": "counter",
-        "auto_rotate": true,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": false,
         "accessibility_info": "Apresentação de slides sobre nossa marca"
       }
     },
@@ -417,8 +460,8 @@
   },
   "order": [
     "benefits",
-    "valen_hero_K8dmQE",
     "slideshow",
+    "valen_hero_K8dmQE",
     "brand_carousel_QGbYdX",
     "featured_collection_pBhhaF",
     "category_grid_MJijQy",
