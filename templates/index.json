@@ -61,62 +61,37 @@
     "slideshow": {
       "type": "valen-hero",
       "blocks": {
-        "hero_slide_Khan6h": {
-          "type": "hero_slide",
+        "slide_x9BBrB": {
+          "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/XT41103.jpg",
-            "image_mobile": "shopify://shop_images/IMG_1231.jpg",
-            "heading": "",
-            "heading_size": "h0",
-            "subheading": "",
-            "button_label": "",
-            "link": "shopify://collections/casacos",
-            "text_alignment": "center",
-            "color_scheme": "background-1",
-            "image_overlay_opacity": 0
+            "collection": "conjuntos",
+            "image_desktop": "shopify://shop_images/XT49753.jpg",
+            "image_mobile": "shopify://shop_images/XT49713.jpg"
           }
         },
-        "hero_slide_mT6KxL": {
-          "type": "hero_slide",
+        "slide_ALYzAU": {
+          "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/XT49753.jpg",
-            "image_mobile": "shopify://shop_images/XT49724.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "shopify://collections/casacos",
-            "text_alignment": "center",
-            "color_scheme": "background-1",
-            "image_overlay_opacity": 0
+            "collection": "conjuntos",
+            "image_desktop": "shopify://shop_images/XT49753.jpg",
+            "image_mobile": "shopify://shop_images/XT49713.jpg"
           }
         },
-        "hero_slide_xWP8et": {
-          "type": "hero_slide",
+        "slide_fyKLb7": {
+          "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/XT49753.jpg",
-            "image_mobile": "shopify://shop_images/XT49724.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "shopify://collections/casacos",
-            "text_alignment": "center",
-            "color_scheme": "background-1",
-            "image_overlay_opacity": 0
+            "collection": "conjuntos",
+            "image_desktop": "shopify://shop_images/XT49753.jpg",
+            "image_mobile": "shopify://shop_images/XT49713.jpg"
           }
         }
       },
       "block_order": [
-        "hero_slide_Khan6h",
-        "hero_slide_mT6KxL",
-        "hero_slide_xWP8et"
+        "slide_x9BBrB",
+        "slide_ALYzAU",
+        "slide_fyKLb7"
       ],
-      "settings": {
-        "auto_rotate": true,
-        "change_slides_speed": 3,
-        "accessibility_info": "Apresentação de slides sobre nossa marca"
-      }
+      "settings": {}
     },
     "brand_carousel_QGbYdX": {
       "type": "brand-carousel",
@@ -385,47 +360,6 @@
         "mobile_content_alignment": "center",
         "show_text_below": true
       }
-    },
-    "valen_hero_m3LHhX": {
-      "type": "valen-hero",
-      "blocks": {
-        "hero_slide_yrj8dg": {
-          "type": "hero_slide",
-          "settings": {
-            "heading": "Slide de imagem",
-            "heading_size": "h1",
-            "subheading": "Conte a história de sua marca com vídeos e imagens",
-            "button_label": "Etiqueta de botão",
-            "link": "",
-            "text_alignment": "center",
-            "color_scheme": "background-1",
-            "image_overlay_opacity": 0
-          }
-        },
-        "hero_slide_RmyPEL": {
-          "type": "hero_slide",
-          "settings": {
-            "heading": "Slide de imagem",
-            "heading_size": "h1",
-            "subheading": "Conte a história de sua marca com vídeos e imagens",
-            "button_label": "Etiqueta de botão",
-            "link": "",
-            "text_alignment": "center",
-            "color_scheme": "background-1",
-            "image_overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "hero_slide_yrj8dg",
-        "hero_slide_RmyPEL"
-      ],
-      "name": "Valen Hero",
-      "settings": {
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "accessibility_info": "Apresentação de slides sobre nossa marca"
-      }
     }
   },
   "order": [
@@ -436,7 +370,6 @@
     "category_grid_MJijQy",
     "featured_collection",
     "collection_mosaic_PG48my",
-    "banner_secondary",
-    "valen_hero_m3LHhX"
+    "banner_secondary"
   ]
 }
