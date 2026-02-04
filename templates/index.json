@@ -182,20 +182,20 @@
     "category_grid_MJijQy": {
       "type": "category-grid",
       "blocks": {
-        "category_item_KTFyVw": {
-          "type": "category_item",
-          "settings": {
-            "image": "shopify://shop_images/XT41103.jpg",
-            "title": "Category Name",
-            "link": ""
-          }
-        },
         "category_item_EVBnY6": {
           "type": "category_item",
           "settings": {
             "image": "shopify://shop_images/XT49724.jpg",
             "title": "ACESSÓRIOS",
             "link": ""
+          }
+        },
+        "category_item_KTFyVw": {
+          "type": "category_item",
+          "settings": {
+            "image": "shopify://shop_images/XT41103.jpg",
+            "title": "BLUSAS",
+            "link": "shopify://collections/blusas"
           }
         },
         "category_item_A94xDr": {
@@ -216,8 +216,8 @@
         }
       },
       "block_order": [
-        "category_item_KTFyVw",
         "category_item_EVBnY6",
+        "category_item_KTFyVw",
         "category_item_A94xDr",
         "category_item_xNnBTk"
       ],
