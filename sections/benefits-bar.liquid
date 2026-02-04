@@ -148,9 +148,15 @@
   }
   
   @media (max-width: 768px) {
-    .benefits-bar__item {
-      flex-basis: 45%;
+    .benefits-bar__container {
+      flex-wrap: nowrap;
+      overflow-x: hidden;
       justify-content: flex-start;
+      scroll-behavior: smooth;
+    }
+    .benefits-bar__item {
+      flex: 0 0 100%;
+      justify-content: center;
     }
   }
 </style>
@@ -179,3 +185,51 @@
     {% endfor %}
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const containers = document.querySelectorAll('.benefits-bar__container');
+    
+    containers.forEach(container => {
+      if (!container) return;
+
+      let currentIndex = 0;
+      let interval;
+
+      function startSlider() {
+        // Only run on mobile
+        if (window.innerWidth > 768) {
+             container.scrollTo({ left: 0 });
+             return;
+        }
+
+        if (interval) clearInterval(interval);
+
+        interval = setInterval(() => {
+          const items = container.querySelectorAll('.benefits-bar__item');
+          if (items.length <= 1) return;
+
+          currentIndex++;
+          if (currentIndex >= items.length) {
+            currentIndex = 0;
+          }
+
+          const scrollPos = currentIndex * container.clientWidth;
+          container.scrollTo({
+            left: scrollPos,
+            behavior: 'smooth'
+          });
+        }, 3000); // 3 seconds per slide
+      }
+
+      // Initial check
+      startSlider();
+
+      // Handle resize
+      window.addEventListener('resize', () => {
+        clearInterval(interval);
+        startSlider();
+      });
+    });
+  });
+</script>

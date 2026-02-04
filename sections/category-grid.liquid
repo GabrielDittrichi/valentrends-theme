@@ -27,6 +27,60 @@
     margin: 0;
   }
 
+  .category-grid-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .category-nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    padding: 10px;
+    display: none; /* Hidden by default, shown via JS if needed or media query */
+    color: #333;
+  }
+  
+  .category-nav-button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .category-nav-button--prev {
+    position: absolute;
+    left: -40px;
+  }
+
+  .category-nav-button--next {
+    position: absolute;
+    right: -40px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .category-nav-button {
+      display: block;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .category-nav-button--prev {
+      left: 10px;
+    }
+
+    .category-nav-button--next {
+      right: 10px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .category-nav-button {
+      display: block;
+    }
+  }
+
   .category-grid {
     display: flex;
     overflow-x: auto;
@@ -35,6 +89,8 @@
     padding-bottom: 20px; /* Space for scrollbar if visible */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    width: 100%;
+    scroll-behavior: smooth;
   }
 
   .category-grid::-webkit-scrollbar {
@@ -115,28 +171,61 @@
       </div>
     {% endif %}
 
-    <div class="category-grid">
-      {% for block in section.blocks %}
-        <a href="{{ block.settings.link | default: '#' }}" class="category-card" {{ block.shopify_attributes }}>
-          <div class="category-card__image-wrapper">
-            {% if block.settings.image != blank %}
-              {{ block.settings.image | image_url: width: 800 | image_tag: 
-                class: 'category-card__image',
-                loading: 'lazy',
-                widths: '300, 600, 900'
-              }}
-            {% else %}
-              {{ 'collection-1' | placeholder_svg_tag: 'category-card__image placeholder-svg' }}
-            {% endif %}
-          </div>
-          <div class="category-card__label">
-            {{ block.settings.title | default: 'Category' }}
-          </div>
-        </a>
-      {% endfor %}
+    <div class="category-grid-wrapper">
+      <button class="category-nav-button category-nav-button--prev" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+
+      <div class="category-grid" id="CategoryGrid-{{ section.id }}">
+        {% for block in section.blocks %}
+          <a href="{{ block.settings.link | default: '#' }}" class="category-card" {{ block.shopify_attributes }}>
+            <div class="category-card__image-wrapper">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 800 | image_tag: 
+                  class: 'category-card__image',
+                  loading: 'lazy',
+                  widths: '300, 600, 900'
+                }}
+              {% else %}
+                {{ 'collection-1' | placeholder_svg_tag: 'category-card__image placeholder-svg' }}
+              {% endif %}
+            </div>
+            <div class="category-card__label">
+              {{ block.settings.title | default: 'Category' }}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+
+      <button class="category-nav-button category-nav-button--next" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('#CategoryGrid-{{ section.id }}').closest('.category-grid-section');
+    const grid = section.querySelector('.category-grid');
+    const prevBtn = section.querySelector('.category-nav-button--prev');
+    const nextBtn = section.querySelector('.category-nav-button--next');
+
+    if (!grid || !prevBtn || !nextBtn) return;
+
+    prevBtn.addEventListener('click', () => {
+      const cardWidth = grid.querySelector('.category-card').offsetWidth;
+      const gap = 30; // Matches CSS gap
+      grid.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const cardWidth = grid.querySelector('.category-card').offsetWidth;
+      const gap = 30; // Matches CSS gap
+      grid.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' });
+    });
+  });
+</script>
 
 {% schema %}
 {
