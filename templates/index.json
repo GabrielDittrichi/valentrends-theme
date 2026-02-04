@@ -279,7 +279,7 @@
           "settings": {
             "image": "shopify://shop_images/XT49724.jpg",
             "background_color": "#8b4513",
-            "title": "GOLDEN BROWN",
+            "title": "CONJUNTOS",
             "subtitle": ">>",
             "link": "shopify://collections",
             "text_color": "white",
@@ -289,7 +289,7 @@
         "mosaic_item_bAWU6W": {
           "type": "mosaic_item",
           "settings": {
-            "image": "shopify://shop_images/XT40894.jpg",
+            "image": "shopify://shop_images/XT40326.jpg",
             "background_color": "#8b4513",
             "title": "SALE",
             "subtitle": "PEÇAS SELECIONADAS COM DESCONTO",
@@ -321,45 +321,6 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "banner_secondary": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "OUTLET",
-            "heading_size": "h1"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Confira",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "Etiqueta de botão",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "scheme-1",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
     }
   },
   "order": [
@@ -369,7 +330,6 @@
     "featured_collection_pBhhaF",
     "category_grid_MJijQy",
     "featured_collection",
-    "collection_mosaic_PG48my",
-    "banner_secondary"
+    "collection_mosaic_PG48my"
   ]
 }
