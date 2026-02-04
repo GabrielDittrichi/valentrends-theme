@@ -162,8 +162,8 @@
     }
   },
   "order": [
-    "slideshow",
     "benefits",
+    "slideshow",
     "featured_collection",
     "banner_secondary"
   ]

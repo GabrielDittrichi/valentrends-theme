@@ -1,0 +1,89 @@
+/* Custom Styles for Anne Fernandes Clone */
+
+:root {
+  --anne-black: #000000;
+  --anne-white: #ffffff;
+  --anne-light-gray: #f5f5f5;
+  --anne-font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--anne-font-primary);
+}
+
+/* Benefits Bar - Dark Background with White Text/Icons */
+.benefits-bar {
+  background-color: var(--anne-black) !important;
+  color: var(--anne-white) !important;
+  padding: 15px 0;
+}
+
+.benefits-bar__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.benefits-bar__text {
+  font-size: 13px;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--anne-white) !important;
+}
+
+.benefits-bar__text strong {
+  font-weight: 700;
+  display: block;
+}
+
+.benefits-bar__image {
+  max-height: 30px;
+  width: auto;
+  filter: brightness(0) invert(1); /* Ensure icons are white if they aren't already */
+}
+
+/* Announcement Bar */
+.announcement-bar {
+  background-color: var(--anne-light-gray);
+  color: var(--anne-black);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Header & Menu */
+.header-wrapper {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header__heading-logo {
+  max-width: 180px;
+}
+
+.header__menu-item {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--anne-black);
+}
+
+.header__menu-item:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.button, .shopify-payment-button__button--unbranded {
+  background-color: var(--anne-black);
+  color: var(--anne-white);
+  border-radius: 0; /* Square buttons */
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background-color: #333;
+}
