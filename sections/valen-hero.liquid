@@ -13,7 +13,66 @@
       .slideshow__image--mobile { display: none !important; }
     }
 
- 
+    /* Custom Golden Arrows & Hero Layout */
+    .slideshow__controls {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      padding: 0 !important;
+      border: none !important;
+      background: transparent !important;
+      pointer-events: none;
+      z-index: 3;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    .slideshow__controls .slider-button {
+      pointer-events: auto;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 1px solid rgba(0,0,0,0.05) !important;
+      border-radius: 50% !important;
+      width: 48px !important;
+      height: 48px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .slideshow__controls .slider-button:hover {
+      background: #ffffff !important;
+      transform: translateY(-50%) scale(1.05);
+    }
+    
+    .slideshow__controls .slider-button--prev {
+      left: 20px !important;
+    }
+    
+    .slideshow__controls .slider-button--next {
+      right: 20px !important;
+    }
+
+    .slideshow__controls .slider-button svg,
+    .slideshow__controls .slider-button .svg-wrapper {
+      color: #D4AF37 !important; /* Golden Color */
+      fill: #D4AF37 !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    /* Hide counter and other controls for clean hero look */
+    .slideshow__controls .slider-counter,
+    .slideshow__controls .slideshow__autoplay {
+      display: none !important;
+    }
 
     @media screen and (max-width: 749px) {
       #Slider-{{ section.id }}::before,
@@ -304,7 +363,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.slideshow.name",
+  "name": "Valen Hero",
   "tag": "section",
   "class": "section",
   "disabled_on": {
@@ -529,50 +588,6 @@
         },
         {
           "type": "select",
-          "id": "box_align",
-          "options": [
-            {
-              "value": "top-left",
-              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__1.label"
-            },
-            {
-              "value": "top-center",
-              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__2.label"
-            },
-            {
-              "value": "top-right",
-              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__3.label"
-            },
-            {
-              "value": "middle-left",
-              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__4.label"
-            },
-            {
-              "value": "middle-center",
-              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__5.label"
-            },
-            {
-              "value": "middle-right",
-              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__6.label"
-            },
-            {
-              "value": "bottom-left",
-              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__7.label"
-            },
-            {
-              "value": "bottom-center",
-              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__8.label"
-            },
-            {
-              "value": "bottom-right",
-              "label": "t:sections.slideshow.blocks.slide.settings.box_align.options__9.label"
-            }
-          ],
-          "default": "middle-center",
-          "label": "t:sections.slideshow.blocks.slide.settings.box_align.label"
-        },
-        {
-          "type": "select",
           "id": "text_alignment",
           "options": [
             {
@@ -590,6 +605,49 @@
           ],
           "default": "center",
           "label": "t:sections.slideshow.blocks.slide.settings.text_alignment.label"
+        },
+        {
+          "type": "range",
+          "id": "image_overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "t:sections.slideshow.blocks.slide.settings.image_overlay_opacity.label",
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "options": [
+            {
+              "value": "accent-1",
+              "label": "t:sections.all.colors.accent_1.label"
+            },
+            {
+              "value": "accent-2",
+              "label": "t:sections.all.colors.accent_2.label"
+            },
+            {
+              "value": "background-1",
+              "label": "t:sections.all.colors.background_1.label"
+            },
+            {
+              "value": "background-2",
+              "label": "t:sections.all.colors.background_2.label"
+            },
+            {
+              "value": "inverse",
+              "label": "t:sections.all.colors.inverse.label"
+            }
+          ],
+          "default": "background-1",
+          "label": "t:sections.all.colors.label",
+          "info": "t:sections.slideshow.blocks.slide.settings.color_scheme.info"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.slideshow.settings.mobile.content"
         },
         {
           "type": "select",
@@ -610,19 +668,13 @@
           ],
           "default": "center",
           "label": "t:sections.slideshow.blocks.slide.settings.text_alignment_mobile.label"
-        },        
-        {
-          "type": "color_scheme",
-          "id": "color_scheme",
-          "label": "t:sections.all.colors.label",
-          "default": "scheme-1"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.slideshow.presets.name",
+      "name": "Valen Hero",
       "blocks": [
         {
           "type": "slide"

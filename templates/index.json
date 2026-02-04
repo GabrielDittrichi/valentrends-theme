@@ -59,7 +59,7 @@
       }
     },
     "slideshow": {
-      "type": "slideshow",
+      "type": "valen-hero",
       "blocks": {
         "slide1": {
           "type": "slide",
