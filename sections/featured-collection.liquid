@@ -44,23 +44,22 @@
       max-width: calc(50% - var(--grid-mobile-horizontal-spacing) - 2px) !important;
     }
 
-    /* Hide pagination counter and prev button */
-    .slider-buttons .slider-counter,
-    .slider-buttons .slider-button--prev {
+    /* Hide pagination counter only */
+    .slider-buttons .slider-counter {
       display: none !important;
     }
 
-    /* Position next button as a floating arrow on the right */
+    /* Show buttons block */
     slider-component.slider-mobile-gutter .slider-buttons {
       display: block;
       position: static;
       margin: 0;
     }
 
-    slider-component.slider-mobile-gutter .slider-buttons .slider-button--next {
+    /* Common styles for both arrows */
+    slider-component.slider-mobile-gutter .slider-buttons .slider-button {
       position: absolute;
       top: 40%;
-      right: 0;
       transform: translateY(-50%);
       z-index: 2;
       width: 32px;
@@ -72,6 +71,16 @@
       display: flex !important;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+    }
+    
+    /* Specific positioning */
+    slider-component.slider-mobile-gutter .slider-buttons .slider-button--prev {
+      left: 0;
+    }
+
+    slider-component.slider-mobile-gutter .slider-buttons .slider-button--next {
+      right: 0;
     }
     
     slider-component.slider-mobile-gutter {
