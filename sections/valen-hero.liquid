@@ -1,367 +1,235 @@
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
-
-{%- style -%}
-  /* --- Estilos Críticos de Visibilidade e Layout --- */
-  
-  /* Mobile: Forçar imagem mobile visível e desktop oculta */
-  @media screen and (max-width: 749px) {
-    #Slider-{{ section.id }} .slideshow__image--desktop { display: none !important; }
-    #Slider-{{ section.id }} .slideshow__image--mobile { display: block !important; width: 100%; height: 100%; object-fit: cover; }
-    
-    /* Altura fixa para mobile para garantir visibilidade */
-    #Slider-{{ section.id }} .slideshow__media {
-      min-height: 400px !important;
-      height: 75vh !important;
-    }
-  }
-
-  /* Desktop: Forçar imagem desktop visível e mobile oculta */
-  @media screen and (min-width: 750px) {
-    #Slider-{{ section.id }} .slideshow__image--desktop { display: block !important; width: 100%; height: 100%; object-fit: cover; }
-    #Slider-{{ section.id }} .slideshow__image--mobile { display: none !important; }
-    
-    /* Limite de altura para desktop */
-    #Slider-{{ section.id }} .slideshow__media {
-      height: auto !important;
-      max-height: 85vh !important;
-      aspect-ratio: auto !important;
-    }
-    
-    #Slider-{{ section.id }} .slideshow__media img {
-      object-position: center center;
-    }
-  }
-
-  /* --- Estilização das Setas (Valen Style) --- */
-  
-  /* Container das setas ocupando toda a área para permitir posicionamento absoluto relativo a ele */
-  #Slideshow-Wrapper-{{ section.id }} .slideshow__controls {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Permite clicar através do container */
-    z-index: 2;
-    border: none !important;
-  }
-
-  /* Estilo dos botões de seta */
-  #Slideshow-Wrapper-{{ section.id }} .slider-button {
-    pointer-events: auto; /* Reativa cliques nos botões */
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%);
-    width: 48px !important;
-    height: 48px !important;
-    background: #ffffff !important; /* Fundo branco sólido */
-    border: 1px solid rgba(0,0,0,0.05) !important;
-    border-radius: 8px !important; /* Quadrado arredondado */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.2s ease;
-  }
-
-  #Slideshow-Wrapper-{{ section.id }} .slider-button:hover {
-    background: #f8f8f8 !important;
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important;
-  }
-
-  /* Posicionamento lateral */
-  #Slideshow-Wrapper-{{ section.id }} .slider-button--prev { left: 20px !important; right: auto !important; }
-  #Slideshow-Wrapper-{{ section.id }} .slider-button--next { right: 20px !important; left: auto !important; }
-
-  /* Ícone da seta */
-  #Slideshow-Wrapper-{{ section.id }} .slider-button .icon {
-    width: 16px !important;
-    height: 16px !important;
-    color: #000000 !important; /* Seta preta */
-    fill: #000000 !important;
-  }
-  
-  /* Ocultar paginação (bolinhas/números) e play/pause */
-  #Slideshow-Wrapper-{{ section.id }} .slider-counter,
-  #Slideshow-Wrapper-{{ section.id }} .slideshow__autoplay {
-    display: none !important;
-  }
-
-  /* --- Overlay de Texto --- */
-  /* Forçar texto a ficar sobre a imagem e centralizado */
-  #Slider-{{ section.id }} .slideshow__text-wrapper {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    background: transparent !important; /* Remove fundos padrão */
-    pointer-events: none;
-  }
-  
-  #Slider-{{ section.id }} .slideshow__text {
-    background: transparent !important;
-    pointer-events: auto;
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  /* Mobile Text Adjustments */
-  @media screen and (max-width: 749px) {
-    #Slider-{{ section.id }} .slideshow__text-wrapper {
-      justify-content: flex-end !important; /* Texto embaixo no mobile */
-      padding-bottom: 3rem;
-    }
-  }
-
-{%- endstyle -%}
-
-<slideshow-component
-  id="Slideshow-Wrapper-{{ section.id }}"
-  class="slider-mobile-gutter section-{{ section.id }}-padding"
-  role="region"
-  aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
-  aria-label="{{ section.settings.accessibility_info | escape }}"
-  style="position: relative; display: block;"
->
-  {%- if section.blocks.size > 1 -%}
-    <div class="slideshow__controls slider-buttons">
-      <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}">
-        <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
-      </button>
-      <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'sections.slideshow.next_slideshow' | t }}">
-        <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
-      </button>
-    </div>
-  {%- endif -%}
-
-  <div
-    class="slideshow banner grid grid--1-col slider slider--everywhere"
-    id="Slider-{{ section.id }}"
-    aria-live="polite"
-    aria-atomic="true"
-    data-autoplay="{{ section.settings.auto_rotate }}"
-    data-speed="{{ section.settings.change_slides_speed }}"
-  >
-    {%- for block in section.blocks -%}
-      <div
-        class="slideshow__slide grid__item grid--1-col slider__slide"
-        id="Slide-{{ section.id }}-{{ forloop.index }}"
-        {{ block.shopify_attributes }}
-        role="group"
-        aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
-        aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
-        tabindex="-1"
-      >
-        <div class="slideshow__media banner__media media">
-          {%- if block.settings.image -%}
-            <!-- Imagem Desktop (Classe padrão: slideshow__image--desktop) -->
-            {{
-              block.settings.image
-              | image_url: width: 3840
-              | image_tag:
-                loading: 'lazy',
-                width: block.settings.image.width,
-                height: block.settings.image.height,
-                class: 'slideshow__image--desktop',
-                sizes: '100vw',
-                widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-            }}
-            
-            <!-- Imagem Mobile (Classe padrão: slideshow__image--mobile) -->
-            {%- if block.settings.image_mobile != blank -%}
-              {{
-                block.settings.image_mobile
-                | image_url: width: 750
-                | image_tag:
-                  loading: 'lazy',
-                  width: block.settings.image_mobile.width,
-                  height: block.settings.image_mobile.height,
-                  class: 'slideshow__image--mobile',
-                  sizes: '100vw',
-                  widths: '375, 550, 750'
-              }}
-            {%- else -%}
-              <!-- Fallback: usa imagem desktop com classe mobile -->
-              {{
-                block.settings.image
-                | image_url: width: 750
-                | image_tag:
-                  loading: 'lazy',
-                  width: block.settings.image.width,
-                  height: block.settings.image.height,
-                  class: 'slideshow__image--mobile',
-                  sizes: '100vw',
-                  widths: '375, 550, 750'
-              }}
-            {%- endif -%}
-          {%- else -%}
-             {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-          {%- endif -%}
-        </div>
-
-        {%- if block.settings.heading != blank or block.settings.subheading != blank or block.settings.button_label != blank -%}
-          <div class="slideshow__text-wrapper banner__content">
-            <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }}">
-              {%- if block.settings.heading != blank -%}
-                <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
-                  {{ block.settings.heading }}
-                </h2>
-              {%- endif -%}
-              {%- if block.settings.subheading != blank -%}
-                <div class="banner__text rte">
-                  <p>{{ block.settings.subheading }}</p>
-                </div>
-              {%- endif -%}
-              {%- if block.settings.button_label != blank -%}
-                <div class="banner__buttons">
-                  <a href="{{ block.settings.link | default: '#' }}" class="button button--primary">
-                    {{ block.settings.button_label | escape }}
-                  </a>
-                </div>
-              {%- endif -%}
-            </div>
-          </div>
-        {%- endif -%}
-      </div>
-    {%- endfor -%}
-  </div>
-</slideshow-component>
-
-{% schema %}
-{
-  "name": "Valen Hero",
-  "tag": "section",
-  "class": "section",
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  },
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "auto_rotate",
-      "label": "Rotação Automática",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "change_slides_speed",
-      "min": 3,
-      "max": 9,
-      "step": 2,
-      "unit": "s",
-      "label": "Velocidade de Rotação",
-      "default": 5
-    },
-    {
-      "type": "text",
-      "id": "accessibility_info",
-      "label": "Texto de Acessibilidade",
-      "default": "Slideshow sobre a marca"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "hero_slide",
-      "name": "Slide",
-      "limit": 5,
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Imagem Desktop (Obrigatória)"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_mobile",
-          "label": "Imagem Mobile (Opcional)",
-          "info": "Se não selecionada, usará a imagem desktop redimensionada."
-        },
-        {
-          "type": "header",
-          "content": "Texto e Botões"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "heading",
-          "label": "Título",
-          "default": "Valen Trends"
-        },
-        {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            { "value": "h2", "label": "Pequeno" },
-            { "value": "h1", "label": "Médio" },
-            { "value": "h0", "label": "Grande" },
-            { "value": "hxl", "label": "Extra Grande" }
-          ],
-          "default": "h1",
-          "label": "Tamanho do Título"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "subheading",
-          "label": "Subtítulo",
-          "default": "Sua moda, seu estilo"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Texto do Botão",
-          "default": "Comprar Agora"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link do Botão"
-        },
-        {
-          "type": "select",
-          "id": "text_alignment",
-          "label": "Alinhamento do Texto",
-          "options": [
-            { "value": "left", "label": "Esquerda" },
-            { "value": "center", "label": "Centro" },
-            { "value": "right", "label": "Direita" }
-          ],
-          "default": "center"
-        },
-        {
-          "type": "select",
-          "id": "color_scheme",
-          "label": "Esquema de Cores",
-          "options": [
-            { "value": "accent-1", "label": "Destaque 1" },
-            { "value": "accent-2", "label": "Destaque 2" },
-            { "value": "background-1", "label": "Fundo 1" },
-            { "value": "background-2", "label": "Fundo 2" },
-            { "value": "inverse", "label": "Inverso" }
-          ],
-          "default": "inverse"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Valen Hero",
-      "blocks": [
-        {
-          "type": "hero_slide"
-        },
-        {
-          "type": "hero_slide"
-        }
-      ]
-    }
-  ]
-}
-{% endschema %}
+<section class="hero-editorial hero-{{ section.id }}"> 
+   <div class="hero-editorial__viewport"> 
+     <div class="hero-editorial__track"> 
+ 
+       {% for block in section.blocks %} 
+         {% if block.settings.collection != blank and block.settings.image_desktop != blank %} 
+           <a 
+             href="{{ block.settings.collection.url }}" 
+             class="hero-editorial__slide" 
+             {{ block.shopify_attributes }} 
+           > 
+             <img 
+               class="hero-editorial__image hero-desktop" 
+               src="{{ block.settings.image_desktop | image_url: width: 2400 }}" 
+               alt="{{ block.settings.collection.title }}" 
+               loading="lazy" 
+             > 
+ 
+             {% if block.settings.image_mobile != blank %} 
+               <img 
+                 class="hero-editorial__image hero-mobile" 
+                 src="{{ block.settings.image_mobile | image_url: width: 1600 }}" 
+                 alt="{{ block.settings.collection.title }}" 
+                 loading="lazy" 
+               > 
+             {% endif %} 
+           </a> 
+         {% endif %} 
+       {% endfor %} 
+ 
+     </div> 
+ 
+     <!-- DOTS SOBRE A IMAGEM --> 
+     <div class="hero-editorial__dots"> 
+       {% for block in section.blocks %} 
+         <button 
+           class="hero-dot{% if forloop.first %} is-active{% endif %}" 
+           data-index="{{ forloop.index0 }}" 
+           aria-label="Slide {{ forloop.index }}" 
+         ></button> 
+       {% endfor %} 
+     </div> 
+ 
+   </div> 
+ </section> 
+ 
+ <style> 
+ /* =============================== 
+    FIX GLOBAL 
+ ================================ */ 
+ html, body { 
+   overflow-x: hidden; 
+ } 
+ 
+ /* =============================== 
+    HERO BASE 
+ ================================ */ 
+ .hero-{{ section.id }} { 
+   width: 100%; 
+   background: #f7efe6; 
+   overflow: hidden; 
+ } 
+ 
+ .hero-editorial__viewport { 
+   width: 100%; 
+   position: relative; 
+   overflow: hidden; 
+ } 
+ 
+ .hero-editorial__track { 
+   display: flex; 
+   transition: transform 0.8s ease; 
+ } 
+ 
+ /* =============================== 
+    SLIDE 
+ ================================ */ 
+ .hero-editorial__slide { 
+   flex: 0 0 100%; 
+   width: 100%; 
+   position: relative; 
+   display: block; 
+   overflow: hidden; 
+ } 
+ 
+ /* ALTURA */ 
+ @media (min-width: 750px) { 
+   .hero-editorial__slide { 
+     height: 78vh; 
+   } 
+ } 
+ 
+ @media (max-width: 749px) { 
+   .hero-editorial__slide { 
+     height: 62vh; 
+   } 
+ } 
+ 
+ /* IMAGENS */ 
+ .hero-editorial__image { 
+   position: absolute; 
+   inset: 0; 
+   width: 100%; 
+   height: 100%; 
+   object-fit: cover; 
+ } 
+ 
+ .hero-desktop { 
+   display: block; 
+ } 
+ 
+ .hero-mobile { 
+   display: none; 
+ } 
+ 
+ @media (max-width: 749px) { 
+   .hero-desktop { 
+     display: none; 
+   } 
+   .hero-mobile { 
+     display: block; 
+   } 
+ } 
+ 
+ /* =============================== 
+    DOTS SOBRE IMAGEM 
+ ================================ */ 
+ .hero-editorial__dots { 
+   position: absolute; 
+   bottom: 18px; 
+   left: 50%; 
+   transform: translateX(-50%); 
+   display: flex; 
+   gap: 10px; 
+   z-index: 5; 
+   pointer-events: auto; 
+ } 
+ 
+ .hero-dot { 
+   width: 8px; 
+   height: 8px; 
+   border-radius: 50%; 
+   background: rgba(255,255,255,0.5); 
+   border: none; 
+   cursor: pointer; 
+   padding: 0; 
+ } 
+ 
+ .hero-dot.is-active { 
+   background: #ffffff; 
+ } 
+ </style> 
+ 
+ <script> 
+ (function () { 
+   const section = document.querySelector('.hero-{{ section.id }}'); 
+   if (!section) return; 
+ 
+   const track = section.querySelector('.hero-editorial__track'); 
+   const slides = section.querySelectorAll('.hero-editorial__slide'); 
+   const dots = section.querySelectorAll('.hero-dot'); 
+ 
+   if (!slides.length) return; 
+ 
+   let index = 0; 
+   let timer; 
+ 
+   function goTo(i) { 
+     index = i; 
+     track.style.transform = `translateX(-${i * 100}%)`; 
+ 
+     dots.forEach(d => d.classList.remove('is-active')); 
+     if (dots[i]) dots[i].classList.add('is-active'); 
+   } 
+ 
+   function autoplay() { 
+     timer = setInterval(() => { 
+       goTo((index + 1) % slides.length); 
+     }, 5000); 
+   } 
+ 
+   dots.forEach(dot => { 
+     dot.addEventListener('click', (e) => { 
+       e.preventDefault(); 
+       e.stopPropagation(); 
+       clearInterval(timer); 
+       goTo(Number(dot.dataset.index)); 
+       autoplay(); 
+     }); 
+   }); 
+ 
+   goTo(0); 
+   autoplay(); 
+ })(); 
+ </script> 
+ 
+ {% schema %} 
+ { 
+   "name": "Hero Editorial", 
+   "tag": "section", 
+   "blocks": [ 
+     { 
+       "type": "slide", 
+       "name": "Slide", 
+       "settings": [ 
+         { 
+           "type": "collection", 
+           "id": "collection", 
+           "label": "Coleção" 
+         }, 
+         { 
+           "type": "image_picker", 
+           "id": "image_desktop", 
+           "label": "Imagem Desktop" 
+         }, 
+         { 
+           "type": "image_picker", 
+           "id": "image_mobile", 
+           "label": "Imagem Mobile" 
+         } 
+       ] 
+     } 
+   ], 
+   "presets": [ 
+     { 
+       "name": "Hero Editorial", 
+       "blocks": [ 
+         { "type": "slide" }, 
+         { "type": "slide" }, 
+         { "type": "slide" } 
+       ] 
+     } 
+   ] 
+ } 
+ {% endschema %}
