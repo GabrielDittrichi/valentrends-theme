@@ -67,16 +67,13 @@
             "image": "shopify://shop_images/XT41103.jpg",
             "image_mobile": "shopify://shop_images/IMG_1231.jpg",
             "heading": "",
-            "heading_size": "h2",
+            "heading_size": "h0",
             "subheading": "",
             "button_label": "",
             "link": "shopify://collections/casacos",
-            "button_style_secondary": false,
-            "show_text_box": true,
             "text_alignment": "center",
-            "image_overlay_opacity": 0,
             "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
+            "image_overlay_opacity": 0
           }
         },
         "hero_slide_mT6KxL": {
@@ -89,12 +86,9 @@
             "subheading": "",
             "button_label": "",
             "link": "shopify://collections/casacos",
-            "button_style_secondary": false,
-            "show_text_box": false,
             "text_alignment": "center",
-            "image_overlay_opacity": 0,
             "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
+            "image_overlay_opacity": 0
           }
         },
         "hero_slide_xWP8et": {
@@ -107,12 +101,9 @@
             "subheading": "",
             "button_label": "",
             "link": "shopify://collections/casacos",
-            "button_style_secondary": false,
-            "show_text_box": false,
             "text_alignment": "center",
-            "image_overlay_opacity": 0,
             "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
+            "image_overlay_opacity": 0
           }
         }
       },
@@ -122,13 +113,8 @@
         "hero_slide_xWP8et"
       ],
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "adapt_image",
-        "slider_visual": "counter",
         "auto_rotate": true,
         "change_slides_speed": 3,
-        "image_behavior": "none",
-        "show_text_below": true,
         "accessibility_info": "Apresentação de slides sobre nossa marca"
       }
     },
@@ -411,12 +397,9 @@
             "subheading": "Conte a história de sua marca com vídeos e imagens",
             "button_label": "Etiqueta de botão",
             "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
             "text_alignment": "center",
-            "image_overlay_opacity": 0,
             "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
+            "image_overlay_opacity": 0
           }
         },
         "hero_slide_RmyPEL": {
@@ -427,12 +410,9 @@
             "subheading": "Conte a história de sua marca com vídeos e imagens",
             "button_label": "Etiqueta de botão",
             "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
             "text_alignment": "center",
-            "image_overlay_opacity": 0,
             "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
+            "image_overlay_opacity": 0
           }
         }
       },
@@ -442,13 +422,8 @@
       ],
       "name": "Valen Hero",
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "counter",
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
         "accessibility_info": "Apresentação de slides sobre nossa marca"
       }
     }
