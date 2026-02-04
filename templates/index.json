@@ -177,6 +177,55 @@
         "padding_bottom": 36
       }
     },
+    "collection_mosaic_PG48my": {
+      "type": "collection-mosaic",
+      "blocks": {
+        "mosaic_item_G7ddgH": {
+          "type": "mosaic_item",
+          "settings": {
+            "image": "shopify://shop_images/XT49724.jpg",
+            "background_color": "#8B4513",
+            "title": "GOLDEN BROWN",
+            "subtitle": ">>",
+            "link": "shopify://collections",
+            "text_color": "white",
+            "width": "half"
+          }
+        },
+        "mosaic_item_bAWU6W": {
+          "type": "mosaic_item",
+          "settings": {
+            "background_color": "#8b4513",
+            "title": "SALE",
+            "subtitle": "PEÇAS SELECIONADAS COM DESCONTO",
+            "link": "",
+            "text_color": "white",
+            "width": "half"
+          }
+        },
+        "mosaic_item_PDP8nK": {
+          "type": "mosaic_item",
+          "settings": {
+            "background_color": "#8B4513",
+            "title": "VESTIDOS",
+            "subtitle": ">>",
+            "link": "",
+            "text_color": "white",
+            "width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "mosaic_item_G7ddgH",
+        "mosaic_item_bAWU6W",
+        "mosaic_item_PDP8nK"
+      ],
+      "name": "Collection Mosaic",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "banner_secondary": {
       "type": "image-banner",
       "blocks": {
@@ -222,6 +271,7 @@
     "slideshow",
     "brand_carousel_QGbYdX",
     "featured_collection",
+    "collection_mosaic_PG48my",
     "banner_secondary"
   ]
 }
