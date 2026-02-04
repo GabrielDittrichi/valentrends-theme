@@ -184,12 +184,12 @@
           "type": "mosaic_item",
           "settings": {
             "image": "shopify://shop_images/XT49724.jpg",
-            "background_color": "#8B4513",
+            "background_color": "#8b4513",
             "title": "GOLDEN BROWN",
             "subtitle": ">>",
             "link": "shopify://collections",
             "text_color": "white",
-            "width": "half"
+            "width": "full"
           }
         },
         "mosaic_item_bAWU6W": {
@@ -201,13 +201,14 @@
             "subtitle": "PEÇAS SELECIONADAS COM DESCONTO",
             "link": "shopify://collections/frontpage",
             "text_color": "white",
-            "width": "half"
+            "width": "full"
           }
         },
         "mosaic_item_PDP8nK": {
           "type": "mosaic_item",
           "settings": {
-            "background_color": "#8B4513",
+            "image": "shopify://shop_images/IMG_6673.jpg",
+            "background_color": "#8b4513",
             "title": "VESTIDOS",
             "subtitle": ">>",
             "link": "",
