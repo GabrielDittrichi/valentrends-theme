@@ -30,6 +30,28 @@
       justify-content: space-between !important;
     }
 
+    /* Force mobile text overlay and remove whitespace */
+    @media screen and (max-width: 749px) {
+       .slideshow__text-wrapper.banner__content {
+           padding: 0 !important;
+           position: absolute !important;
+           bottom: 20px !important;
+           left: 0 !important;
+           width: 100% !important;
+           background: transparent !important;
+       }
+       
+       .slideshow.banner--mobile-bottom {
+           margin-bottom: 0 !important;
+       }
+
+       /* Remove extra padding that creates whitespace */
+       .banner--mobile-bottom::after, 
+       .banner--mobile-bottom .banner__media::after {
+           display: none !important;
+       }
+    }
+
     .slideshow__controls .slider-button {
       pointer-events: auto;
       position: absolute;
@@ -184,6 +206,18 @@
         #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
           opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
         }
+        
+        /* Mobile height adjustment */
+        @media screen and (max-width: 749px) {
+          #Slide-{{ section.id }}-{{ forloop.index }} .slideshow__media.banner__media {
+             min-height: 500px !important;
+             height: 80vh !important;
+          }
+          #Slide-{{ section.id }}-{{ forloop.index }} .slideshow__image--mobile {
+             height: 100% !important;
+             object-fit: cover !important;
+          }
+        }
       </style>
       <div
         class="slideshow__slide grid__item grid--1-col slider__slide"
@@ -291,7 +325,7 @@
   </div>
 
   {%- if section.blocks.size > 1 and section.settings.auto_rotate == false -%}
-    <div class="slideshow__controls slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
+    <div class="slideshow__controls slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}" style="display: none !important;">
       <button
         type="button"
         class="slider-button slider-button--prev"
