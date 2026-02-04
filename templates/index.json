@@ -1,75 +1,149 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "slideshow": {
+      "type": "slideshow",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "slide1": {
+          "type": "slide",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "heading": "",
+            "subheading": "",
+            "button_label": "CONFERIR",
+            "link": "shopify://collections/all",
+            "box_align": "bottom-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "slide1"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
+        "layout": "full_width",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
         "show_text_below": false
+      }
+    },
+    "benefits": {
+      "type": "benefits-bar",
+      "blocks": {
+        "benefit1": {
+          "type": "benefit_item",
+          "settings": {
+            "text": "Parcelamento",
+            "bold_text": "Em até 6x sem juros*",
+            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\" /><line x1=\"2\" y1=\"10\" x2=\"22\" y2=\"10\" /></svg>"
+          }
+        },
+        "benefit2": {
+          "type": "benefit_item",
+          "settings": {
+            "text": "Frete grátis",
+            "bold_text": "acima de R$900",
+            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\" /><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\" /><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\" /><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\" /></svg>"
+          }
+        },
+        "benefit3": {
+          "type": "benefit_item",
+          "settings": {
+            "text": "Primeira troca",
+            "bold_text": "Gratuita",
+            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11\" /><path d=\"M21 2v6h-6\" /><path d=\"M21 3L11 13\" /></svg>"
+          }
+        },
+        "benefit4": {
+          "type": "benefit_item",
+          "settings": {
+            "text": "5% OFF",
+            "bold_text": "no PIX",
+            "svg_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2v20\" /><path d=\"M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\" /></svg>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit1",
+        "benefit2",
+        "benefit3",
+        "benefit4"
+      ],
+      "settings": {
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "NEW IN",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "all",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "outline",
         "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
         "columns_mobile": "2",
-        "padding_top": 44,
+        "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "banner_secondary": {
+      "type": "image-banner",
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      },
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "OUTLET",
+            "heading_size": "h1"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Confira",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false
+          }
+        }
+      },
+      "block_order": ["heading", "button"]
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "slideshow",
+    "benefits",
+    "featured_collection",
+    "banner_secondary"
   ]
 }
