@@ -88,31 +88,31 @@
       "type": "brand-carousel",
       "blocks": {
         "brand1": {
-          "type": "brand",
+          "type": "brand_logo",
           "settings": {
              "link": "shopify://collections/all"
           }
         },
         "brand2": {
-          "type": "brand",
+          "type": "brand_logo",
           "settings": {
              "link": "shopify://collections/all"
           }
         },
         "brand3": {
-          "type": "brand",
+          "type": "brand_logo",
           "settings": {
              "link": "shopify://collections/all"
           }
         },
         "brand4": {
-            "type": "brand",
+            "type": "brand_logo",
             "settings": {
                "link": "shopify://collections/all"
             }
         },
         "brand5": {
-            "type": "brand",
+            "type": "brand_logo",
             "settings": {
                "link": "shopify://collections/all"
             }
@@ -138,21 +138,21 @@
       "type": "category-grid",
       "blocks": {
         "cat1": {
-          "type": "category",
+          "type": "category_item",
           "settings": {
             "title": "ACESSÓRIOS",
             "link": "shopify://collections/all"
           }
         },
         "cat2": {
-          "type": "category",
+          "type": "category_item",
           "settings": {
             "title": "CALÇAS",
             "link": "shopify://collections/all"
           }
         },
         "cat3": {
-          "type": "category",
+          "type": "category_item",
           "settings": {
             "title": "BLAZERS",
             "link": "shopify://collections/all"
