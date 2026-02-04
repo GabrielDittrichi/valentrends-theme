@@ -3,130 +3,128 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  /* Controle de Visibilidade Desktop/Mobile Incondicional */
+  /* --- Estilos Críticos de Visibilidade e Layout --- */
+  
+  /* Mobile: Forçar imagem mobile visível e desktop oculta */
   @media screen and (max-width: 749px) {
-    .valen-hero-image--desktop { display: none !important; }
-    .valen-hero-image--mobile { display: block !important; width: 100%; height: 100%; object-fit: cover; }
+    #Slider-{{ section.id }} .slideshow__image--desktop { display: none !important; }
+    #Slider-{{ section.id }} .slideshow__image--mobile { display: block !important; width: 100%; height: 100%; object-fit: cover; }
     
-    /* Altura fixa para mobile */
-    .valen-hero-media {
-      height: 80vh !important;
-      min-height: 500px;
+    /* Altura fixa para mobile para garantir visibilidade */
+    #Slider-{{ section.id }} .slideshow__media {
+      min-height: 400px !important;
+      height: 75vh !important;
     }
   }
 
+  /* Desktop: Forçar imagem desktop visível e mobile oculta */
   @media screen and (min-width: 750px) {
-    .valen-hero-image--desktop { display: block !important; width: 100%; height: 100%; object-fit: cover; }
-    .valen-hero-image--mobile { display: none !important; }
+    #Slider-{{ section.id }} .slideshow__image--desktop { display: block !important; width: 100%; height: 100%; object-fit: cover; }
+    #Slider-{{ section.id }} .slideshow__image--mobile { display: none !important; }
     
-    /* Limite de altura para desktop para evitar imagens gigantes */
-    .valen-hero-media {
-      height: auto;
-      max-height: 85vh; /* Limita a 85% da altura da tela */
-      aspect-ratio: auto; /* Respeita proporção natural até o limite */
-      overflow: hidden;
-      position: relative;
+    /* Limite de altura para desktop */
+    #Slider-{{ section.id }} .slideshow__media {
+      height: auto !important;
+      max-height: 85vh !important;
+      aspect-ratio: auto !important;
     }
     
-    /* Se a imagem for muito alta, forçar object-fit cover dentro do limite */
-    .valen-hero-media img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: center;
+    #Slider-{{ section.id }} .slideshow__media img {
+      object-position: center center;
     }
   }
 
-  /* Estilos das Setas Customizadas (Valen Style) */
-  .slideshow__controls {
+  /* --- Estilização das Setas (Valen Style) --- */
+  
+  /* Container das setas ocupando toda a área para permitir posicionamento absoluto relativo a ele */
+  #Slideshow-Wrapper-{{ section.id }} .slideshow__controls {
     position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  .slideshow__controls .slider-button {
-    pointer-events: auto;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #ffffff !important;
-    border: 1px solid rgba(0,0,0,0.05) !important;
-    border-radius: 8px !important;
-    width: 48px !important;
-    height: 48px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
-    transition: transform 0.2s ease, background 0.2s ease;
-    z-index: 3;
-  }
-
-  .slideshow__controls .slider-button:hover {
-    background: #f8f8f8 !important;
-    transform: translateY(-50%) scale(1.05);
-  }
-  
-  .slideshow__controls .slider-button--prev {
-    left: 10px !important;
-  }
-  
-  .slideshow__controls .slider-button--next {
-    right: 10px !important;
-  }
-
-  .slideshow__controls .slider-button svg,
-  .slideshow__controls .slider-button .svg-wrapper {
-    color: #000000 !important;
-    fill: #000000 !important;
-    width: 18px !important;
-    height: 18px !important;
-  }
-  
-  /* Remove paginação e outros controles padrão */
-  .slider-counter, .slideshow__autoplay { display: none !important; }
-
-  /* Overlay de Texto */
-  .valen-hero-content {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centraliza verticalmente por padrão */
-    pointer-events: none;
-    padding: 2rem;
+    pointer-events: none; /* Permite clicar através do container */
+    z-index: 2;
+    border: none !important;
+  }
+
+  /* Estilo dos botões de seta */
+  #Slideshow-Wrapper-{{ section.id }} .slider-button {
+    pointer-events: auto; /* Reativa cliques nos botões */
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    width: 48px !important;
+    height: 48px !important;
+    background: #ffffff !important; /* Fundo branco sólido */
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    border-radius: 8px !important; /* Quadrado arredondado */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease;
+  }
+
+  #Slideshow-Wrapper-{{ section.id }} .slider-button:hover {
+    background: #f8f8f8 !important;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important;
+  }
+
+  /* Posicionamento lateral */
+  #Slideshow-Wrapper-{{ section.id }} .slider-button--prev { left: 20px !important; right: auto !important; }
+  #Slideshow-Wrapper-{{ section.id }} .slider-button--next { right: 20px !important; left: auto !important; }
+
+  /* Ícone da seta */
+  #Slideshow-Wrapper-{{ section.id }} .slider-button .icon {
+    width: 16px !important;
+    height: 16px !important;
+    color: #000000 !important; /* Seta preta */
+    fill: #000000 !important;
   }
   
-  .valen-hero-box {
+  /* Ocultar paginação (bolinhas/números) e play/pause */
+  #Slideshow-Wrapper-{{ section.id }} .slider-counter,
+  #Slideshow-Wrapper-{{ section.id }} .slideshow__autoplay {
+    display: none !important;
+  }
+
+  /* --- Overlay de Texto --- */
+  /* Forçar texto a ficar sobre a imagem e centralizado */
+  #Slider-{{ section.id }} .slideshow__text-wrapper {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    background: transparent !important; /* Remove fundos padrão */
+    pointer-events: none;
+  }
+  
+  #Slider-{{ section.id }} .slideshow__text {
+    background: transparent !important;
     pointer-events: auto;
-    max-width: 60rem;
+    max-width: 80rem;
     margin: 0 auto;
     padding: 2rem;
-    text-align: center;
   }
   
-  /* Alinhamentos Específicos */
-  .content-left { align-items: flex-start; text-align: left; }
-  .content-center { align-items: center; text-align: center; }
-  .content-right { align-items: flex-end; text-align: right; }
-  
-  /* Mobile adjustments */
+  /* Mobile Text Adjustments */
   @media screen and (max-width: 749px) {
-    .valen-hero-content {
-       justify-content: flex-end; /* Texto embaixo no mobile */
-       padding-bottom: 4rem;
+    #Slider-{{ section.id }} .slideshow__text-wrapper {
+      justify-content: flex-end !important; /* Texto embaixo no mobile */
+      padding-bottom: 3rem;
     }
   }
+
 {%- endstyle -%}
 
 <slideshow-component
+  id="Slideshow-Wrapper-{{ section.id }}"
   class="slider-mobile-gutter section-{{ section.id }}-padding"
   role="region"
   aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
@@ -162,10 +160,9 @@
         aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
         tabindex="-1"
       >
-        <!-- Container de Mídia com Altura Controlada -->
-        <div class="slideshow__media banner__media media valen-hero-media">
+        <div class="slideshow__media banner__media media">
           {%- if block.settings.image -%}
-            <!-- Imagem Desktop -->
+            <!-- Imagem Desktop (Classe padrão: slideshow__image--desktop) -->
             {{
               block.settings.image
               | image_url: width: 3840
@@ -173,12 +170,12 @@
                 loading: 'lazy',
                 width: block.settings.image.width,
                 height: block.settings.image.height,
-                class: 'valen-hero-image--desktop',
+                class: 'slideshow__image--desktop',
                 sizes: '100vw',
                 widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
             }}
             
-            <!-- Imagem Mobile (se definida, senão usa a desktop no mobile também mas com classes de mobile) -->
+            <!-- Imagem Mobile (Classe padrão: slideshow__image--mobile) -->
             {%- if block.settings.image_mobile != blank -%}
               {{
                 block.settings.image_mobile
@@ -187,21 +184,20 @@
                   loading: 'lazy',
                   width: block.settings.image_mobile.width,
                   height: block.settings.image_mobile.height,
-                  class: 'valen-hero-image--mobile',
+                  class: 'slideshow__image--mobile',
                   sizes: '100vw',
                   widths: '375, 550, 750'
               }}
             {%- else -%}
-               <!-- Fallback: se não tiver imagem mobile, mostrar desktop no mobile também (via CSS teria que ajustar, mas ideal é ter imagem separada) -->
-               <!-- Neste caso, duplicamos a tag para aplicar a classe mobile correta -->
-               {{
+              <!-- Fallback: usa imagem desktop com classe mobile -->
+              {{
                 block.settings.image
                 | image_url: width: 750
                 | image_tag:
                   loading: 'lazy',
                   width: block.settings.image.width,
                   height: block.settings.image.height,
-                  class: 'valen-hero-image--mobile',
+                  class: 'slideshow__image--mobile',
                   sizes: '100vw',
                   widths: '375, 550, 750'
               }}
@@ -211,10 +207,9 @@
           {%- endif -%}
         </div>
 
-        <!-- Conteúdo de Texto Overlay -->
         {%- if block.settings.heading != blank or block.settings.subheading != blank or block.settings.button_label != blank -%}
-          <div class="valen-hero-content content-{{ block.settings.text_alignment }}">
-            <div class="valen-hero-box color-{{ block.settings.color_scheme }} gradient" style="background-color: transparent;">
+          <div class="slideshow__text-wrapper banner__content">
+            <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }}">
               {%- if block.settings.heading != blank -%}
                 <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
                   {{ block.settings.heading }}
@@ -252,8 +247,8 @@
     {
       "type": "checkbox",
       "id": "auto_rotate",
-      "label": "t:sections.slideshow.settings.auto_rotate.label",
-      "default": false
+      "label": "Rotação Automática",
+      "default": true
     },
     {
       "type": "range",
@@ -262,19 +257,14 @@
       "max": 9,
       "step": 2,
       "unit": "s",
-      "label": "t:sections.slideshow.settings.change_slides_speed.label",
+      "label": "Velocidade de Rotação",
       "default": 5
-    },
-    {
-      "type": "header",
-      "content": "t:sections.slideshow.settings.accessibility.content"
     },
     {
       "type": "text",
       "id": "accessibility_info",
-      "label": "t:sections.slideshow.settings.accessibility.label",
-      "info": "t:sections.slideshow.settings.accessibility.info",
-      "default": "t:sections.slideshow.settings.accessibility.default"
+      "label": "Texto de Acessibilidade",
+      "default": "Slideshow sobre a marca"
     }
   ],
   "blocks": [
@@ -356,16 +346,6 @@
             { "value": "inverse", "label": "Inverso" }
           ],
           "default": "inverse"
-        },
-        {
-          "type": "range",
-          "id": "image_overlay_opacity",
-          "min": 0,
-          "max": 100,
-          "step": 10,
-          "unit": "%",
-          "label": "Opacidade da Sombra na Imagem",
-          "default": 0
         }
       ]
     }
