@@ -64,11 +64,13 @@
         "slide1": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/XT49713.jpg",
+            "image_mobile": "shopify://shop_images/XT49724.jpg",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
-            "button_label": "CONFERIR",
+            "button_label": "",
             "link": "shopify://collections/all",
             "button_style_secondary": false,
             "show_text_box": false,
