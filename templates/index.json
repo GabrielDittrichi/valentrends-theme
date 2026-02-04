@@ -218,7 +218,14 @@
           "type": "category_item",
           "settings": {
             "image": "shopify://shop_images/XT40871.jpg",
-            "title": "BLAZERS",
+            "title": "CASACOS",
+            "link": "shopify://collections/casacos"
+          }
+        },
+        "category_item_DCGcUw": {
+          "type": "category_item",
+          "settings": {
+            "title": "Category Name",
             "link": ""
           }
         }
@@ -227,7 +234,8 @@
         "category_item_EVBnY6",
         "category_item_KTFyVw",
         "category_item_A94xDr",
-        "category_item_xNnBTk"
+        "category_item_xNnBTk",
+        "category_item_DCGcUw"
       ],
       "name": "Shop by Category",
       "settings": {
