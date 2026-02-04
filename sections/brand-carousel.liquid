@@ -1,0 +1,233 @@
+{% schema %}
+{
+  "name": "Brand Carousel",
+  "settings": [
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Width (Desktop)",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "mobile_logo_width",
+      "min": 30,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Width (Mobile)",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Gap between logos",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+        "type": "header",
+        "content": "Section Padding"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link to Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Carousel",
+      "blocks": [
+        {"type": "brand"},
+        {"type": "brand"},
+        {"type": "brand"},
+        {"type": "brand"},
+        {"type": "brand"}
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .brand-carousel-section {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    overflow: hidden;
+  }
+
+  .brand-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: {{ section.settings.gap }}px;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    cursor: grab;
+    align-items: center;
+  }
+
+  .brand-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .brand-carousel.active {
+    cursor: grabbing;
+    scroll-behavior: auto; /* Disable smooth scroll while dragging */
+  }
+
+  .brand-carousel__item {
+    flex: 0 0 auto;
+    width: {{ section.settings.logo_width }}px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+  .brand-carousel__item:hover {
+    transform: scale(1.05);
+  }
+
+  .brand-carousel__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .brand-carousel__image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .brand-carousel__placeholder {
+    width: 100%;
+    height: 100px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 12px;
+    border: 1px dashed #ccc;
+  }
+
+  @media (max-width: 768px) {
+    .brand-carousel__item {
+      width: {{ section.settings.mobile_logo_width }}px;
+    }
+    .brand-carousel-section {
+        padding-top: {{ section.settings.padding_top | times: 0.75 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 }}px;
+    }
+  }
+</style>
+
+<div class="brand-carousel-section page-width">
+  <div class="brand-carousel" id="BrandCarousel-{{ section.id }}">
+    {% for block in section.blocks %}
+      <div class="brand-carousel__item" {{ block.shopify_attributes }}>
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}" class="brand-carousel__link">
+        {% endif %}
+        
+        {% if block.settings.image != blank %}
+          {{ block.settings.image | image_url: width: 400 | image_tag: class: 'brand-carousel__image', loading: 'lazy' }}
+        {% else %}
+          <div class="brand-carousel__placeholder">
+            Brand Logo
+          </div>
+        {% endif %}
+
+        {% if block.settings.link != blank %}
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  (function() {
+    const slider = document.getElementById('BrandCarousel-{{ section.id }}');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll-fast
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  })();
+</script>

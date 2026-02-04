@@ -1,0 +1,218 @@
+{{ 'section-category-grid.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .category-grid-section {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  .category-grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .category-grid-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .category-grid-title {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: 1 per row */
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .category-grid {
+      grid-template-columns: repeat(3, 1fr); /* Desktop: 3 per row */
+      gap: 30px;
+    }
+  }
+
+  .category-card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    group: hover;
+  }
+
+  .category-card__image-wrapper {
+    position: relative;
+    width: 100%;
+    /* Aspect ratio approximately 3:4 based on screenshot */
+    padding-bottom: 125%; 
+    background-color: #f4f4f4;
+    overflow: hidden;
+  }
+
+  .category-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .category-card:hover .category-card__image {
+    transform: scale(1.05);
+  }
+
+  .category-card__label {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 12px 24px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    white-space: nowrap;
+    z-index: 1;
+    min-width: 160px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .category-card:hover .category-card__label {
+    background-color: #333;
+  }
+</style>
+
+<div class="category-grid-section">
+  <div class="category-grid-container">
+    {% if section.settings.title != blank %}
+      <div class="category-grid-header">
+        <h2 class="category-grid-title">{{ section.settings.title }}</h2>
+      </div>
+    {% endif %}
+
+    <div class="category-grid">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link | default: '#' }}" class="category-card" {{ block.shopify_attributes }}>
+          <div class="category-card__image-wrapper">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 800 | image_tag: 
+                class: 'category-card__image',
+                loading: 'lazy',
+                widths: '300, 600, 900'
+              }}
+            {% else %}
+              {{ 'collection-1' | placeholder_svg_tag: 'category-card__image placeholder-svg' }}
+            {% endif %}
+          </div>
+          <div class="category-card__label">
+            {{ block.settings.title | default: 'Category' }}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop by Category",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "SHOP BY CATEGORY"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Label",
+          "default": "Category Name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Category",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "ACESSÓRIOS"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "CALÇAS"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "BLAZERS"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

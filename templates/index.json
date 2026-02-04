@@ -1,49 +1,5 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "slideshow": {
-      "type": "slideshow",
-      "blocks": {
-        "slide1": {
-          "type": "slide",
-          "settings": {
-            "image_overlay_opacity": 0,
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "CONFERIR",
-            "link": "shopify://collections/all",
-            "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "bottom-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-1"
-          }
-        }
-      },
-      "block_order": [
-        "slide1"
-      ],
-      "settings": {
-        "layout": "full_width",
-        "slide_height": "large",
-        "slider_visual": "counter",
-        "auto_rotate": true,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": false,
-        "accessibility_info": "Apresentação de slides sobre nossa marca"
-      }
-    },
     "benefits": {
       "type": "benefits-bar",
       "blocks": {
@@ -93,6 +49,122 @@
         "padding_bottom": 16
       }
     },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide1": {
+          "type": "slide",
+          "settings": {
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "CONFERIR",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "bottom-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        }
+      },
+      "block_order": [
+        "slide1"
+      ],
+      "settings": {
+        "layout": "full_width",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Apresentação de slides sobre nossa marca"
+      }
+    },
+    "brand_carousel": {
+      "type": "brand-carousel",
+      "blocks": {
+        "brand1": {
+          "type": "brand",
+          "settings": {
+             "link": "shopify://collections/all"
+          }
+        },
+        "brand2": {
+          "type": "brand",
+          "settings": {
+             "link": "shopify://collections/all"
+          }
+        },
+        "brand3": {
+          "type": "brand",
+          "settings": {
+             "link": "shopify://collections/all"
+          }
+        },
+        "brand4": {
+            "type": "brand",
+            "settings": {
+               "link": "shopify://collections/all"
+            }
+        },
+        "brand5": {
+            "type": "brand",
+            "settings": {
+               "link": "shopify://collections/all"
+            }
+        }
+      },
+      "block_order": [
+        "brand1",
+        "brand2",
+        "brand3",
+        "brand4",
+        "brand5"
+      ],
+      "settings": {
+        "logo_width": 150,
+        "mobile_logo_width": 100,
+        "gap": 50,
+        "background_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "category_grid": {
+      "type": "category-grid",
+      "blocks": {
+        "cat1": {
+          "type": "category",
+          "settings": {
+            "title": "ACESSÓRIOS",
+            "link": "shopify://collections/all"
+          }
+        },
+        "cat2": {
+          "type": "category",
+          "settings": {
+            "title": "CALÇAS",
+            "link": "shopify://collections/all"
+          }
+        },
+        "cat3": {
+          "type": "category",
+          "settings": {
+            "title": "BLAZERS",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": ["cat1", "cat2", "cat3"],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -121,50 +193,128 @@
         "padding_bottom": 36
       }
     },
-    "banner_secondary": {
-      "type": "image-banner",
+    "collection_mosaic": {
+      "type": "collection-mosaic",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "item1": {
+          "type": "mosaic_item",
           "settings": {
-            "heading": "OUTLET",
-            "heading_size": "h1"
+            "title": "GOLDEN BROWN",
+            "subtitle": ">>",
+            "width": "half",
+            "text_color": "white",
+            "link": "shopify://collections/all"
           }
         },
-        "button": {
-          "type": "buttons",
+        "item2": {
+          "type": "mosaic_item",
           "settings": {
-            "button_label_1": "Confira",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "Etiqueta de botão",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "title": "SALE",
+            "subtitle": "PEÇAS SELECIONADAS COM DESCONTO",
+            "width": "half",
+            "background_color": "#8B4513",
+            "text_color": "white",
+            "link": "shopify://collections/all"
+          }
+        },
+        "item3": {
+          "type": "mosaic_item",
+          "settings": {
+            "title": "VESTIDOS",
+            "subtitle": ">>",
+            "width": "full",
+            "text_color": "white",
+            "link": "shopify://collections/all"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "item1",
+        "item2",
+        "item3"
       ],
       "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "scheme-1",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
+        "padding_top": 36,
+        "padding_bottom": 36
       }
+    },
+    "store_section": {
+        "type": "image-with-text",
+        "blocks": {
+            "heading": {
+                "type": "heading",
+                "settings": {
+                    "heading": "NOSSA LOJA FÍSICA",
+                    "heading_size": "h1"
+                }
+            },
+            "text": {
+                "type": "text",
+                "settings": {
+                    "text": "<p>Venha nos visitar em Belo Horizonte. Um espaço pensado para você com todo carinho e exclusividade.</p>",
+                    "text_style": "body"
+                }
+            },
+            "button": {
+                "type": "button",
+                "settings": {
+                    "button_label": "VER NO MAPA",
+                    "button_link": "shopify://pages/contact"
+                }
+            }
+        },
+        "block_order": ["heading", "text", "button"],
+        "settings": {
+            "layout": "image_first",
+            "desktop_content_position": "middle",
+            "desktop_content_alignment": "left",
+            "content_layout": "no_overlap",
+            "color_scheme": "scheme-1"
+        }
+    },
+    "malinha_section": {
+        "type": "image-with-text",
+        "blocks": {
+            "heading": {
+                "type": "heading",
+                "settings": {
+                    "heading": "MALINHA EM CASA",
+                    "heading_size": "h1"
+                }
+            },
+            "text": {
+                "type": "text",
+                "settings": {
+                    "text": "<p>Experimente no conforto da sua casa! Levamos a malinha com peças selecionadas para você em toda a região de Belo Horizonte.</p>",
+                    "text_style": "body"
+                }
+            },
+            "button": {
+                "type": "button",
+                "settings": {
+                    "button_label": "SOLICITAR MALINHA",
+                    "button_link": "https://wa.me/5531999999999"
+                }
+            }
+        },
+        "block_order": ["heading", "text", "button"],
+        "settings": {
+            "layout": "text_first",
+            "desktop_content_position": "middle",
+            "desktop_content_alignment": "left",
+            "content_layout": "no_overlap",
+            "color_scheme": "scheme-2"
+        }
     }
   },
   "order": [
     "benefits",
     "slideshow",
+    "brand_carousel",
+    "category_grid",
     "featured_collection",
-    "banner_secondary"
+    "collection_mosaic",
+    "store_section",
+    "malinha_section"
   ]
 }
