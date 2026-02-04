@@ -93,6 +93,62 @@
         "accessibility_info": "Apresentação de slides sobre nossa marca"
       }
     },
+    "brand_carousel_QGbYdX": {
+      "type": "brand-carousel",
+      "blocks": {
+        "brand_logo_pFxDgb": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/Captura_de_tela_2026-02-03_130632-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "brand_logo_cdqMLY": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/Captura_de_tela_2026-02-03_125415-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "brand_logo_EYmXJL": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/Captura_de_tela_2026-02-03_130528-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "brand_logo_UM4Pnd": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/skazi-1-215x215-removebg-preview.png",
+            "link": ""
+          }
+        },
+        "brand_logo_qDMch8": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/Captura_de_tela_2026-02-03_130846-removebg-preview.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_logo_pFxDgb",
+        "brand_logo_cdqMLY",
+        "brand_logo_EYmXJL",
+        "brand_logo_UM4Pnd",
+        "brand_logo_qDMch8"
+      ],
+      "name": "Brand Carousel",
+      "settings": {
+        "logo_width": 150,
+        "mobile_logo_width": 100,
+        "gap": 50,
+        "background_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -164,6 +220,7 @@
   "order": [
     "benefits",
     "slideshow",
+    "brand_carousel_QGbYdX",
     "featured_collection",
     "banner_secondary"
   ]
