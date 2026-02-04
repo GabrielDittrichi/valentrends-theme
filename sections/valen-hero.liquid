@@ -165,34 +165,69 @@
    let index = 0; 
    let timer; 
  
-   function goTo(i) { 
-     index = i; 
-     track.style.transform = `translateX(-${i * 100}%)`; 
- 
-     dots.forEach(d => d.classList.remove('is-active')); 
-     if (dots[i]) dots[i].classList.add('is-active'); 
-   } 
- 
-   function autoplay() { 
-     timer = setInterval(() => { 
-       goTo((index + 1) % slides.length); 
-     }, 5000); 
-   } 
- 
-   dots.forEach(dot => { 
-     dot.addEventListener('click', (e) => { 
-       e.preventDefault(); 
-       e.stopPropagation(); 
-       clearInterval(timer); 
-       goTo(Number(dot.dataset.index)); 
-       autoplay(); 
-     }); 
-   }); 
- 
-   goTo(0); 
-   autoplay(); 
- })(); 
- </script> 
+   function goTo(i) {
+    // wrap around
+    if (i < 0) i = slides.length - 1;
+    if (i >= slides.length) i = 0;
+
+    index = i;
+    track.style.transform = `translateX(-${i * 100}%)`;
+
+    dots.forEach(d => d.classList.remove('is-active'));
+    if (dots[i]) dots[i].classList.add('is-active');
+  }
+
+  function startAutoplay() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      goTo(index + 1);
+    }, 5000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(timer);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      stopAutoplay();
+      goTo(Number(dot.dataset.index));
+      startAutoplay();
+    });
+  });
+
+  // Touch Events (Swipe)
+  let startX = 0;
+  let isDragging = false;
+
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+    stopAutoplay();
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 50) { // Threshold 50px
+      if (diff > 0) {
+        goTo(index + 1); // Swipe Left -> Next
+      } else {
+        goTo(index - 1); // Swipe Right -> Prev
+      }
+    }
+    isDragging = false;
+    startAutoplay();
+  });
+
+  goTo(0);
+  startAutoplay();
+})();
+</script> 
  
  {% schema %} 
  { 

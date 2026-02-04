@@ -39,6 +39,16 @@
           "label": "Image"
         },
         {
+            "type": "range",
+            "id": "overlay_opacity",
+            "min": 0,
+            "max": 90,
+            "step": 5,
+            "unit": "%",
+            "label": "Image Darkening Overlay",
+            "default": 0
+        },
+        {
             "type": "color",
             "id": "background_color",
             "label": "Background Color (if no image)",
@@ -148,6 +158,20 @@
     transition: transform 0.3s ease;
   }
 
+  .mosaic-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: var(--overlay-opacity, 0);
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
   .mosaic-item--full {
     grid-column: span 2;
     min-height: 400px;
@@ -226,7 +250,7 @@
         {% assign width_class = 'mosaic-item--full' %}
       {% endif %}
 
-      <a href="{{ block.settings.link | default: '#' }}" class="mosaic-item {{ width_class }} text-{{ block.settings.text_color }}" {{ block.shopify_attributes }} style="background-color: {{ block.settings.background_color }};">
+      <a href="{{ block.settings.link | default: '#' }}" class="mosaic-item {{ width_class }} text-{{ block.settings.text_color }}" {{ block.shopify_attributes }} style="background-color: {{ block.settings.background_color }}; --overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};">
         {% if block.settings.image != blank %}
             {{ block.settings.image | image_url: width: 1200 | image_tag: class: 'mosaic-item__bg', loading: 'lazy' }}
         {% endif %}
