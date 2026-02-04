@@ -315,6 +315,7 @@
           "type": "mosaic_item",
           "settings": {
             "image": "shopify://shop_images/XT49724.jpg",
+            "overlay_opacity": 15,
             "background_color": "#8b4513",
             "title": "CONJUNTOS",
             "subtitle": ">>",
@@ -327,6 +328,7 @@
           "type": "mosaic_item",
           "settings": {
             "image": "shopify://shop_images/XT40326.jpg",
+            "overlay_opacity": 10,
             "background_color": "#8b4513",
             "title": "SALE",
             "subtitle": "PEÇAS SELECIONADAS COM DESCONTO",
@@ -339,6 +341,7 @@
           "type": "mosaic_item",
           "settings": {
             "image": "shopify://shop_images/IMG_6673.jpg",
+            "overlay_opacity": 20,
             "background_color": "#8b4513",
             "title": "VESTIDOS",
             "subtitle": ">>",
