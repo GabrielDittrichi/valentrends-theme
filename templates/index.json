@@ -75,7 +75,7 @@
       "name": "Valen Hero",
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "adapt_image",
+        "slide_height": "large",
         "slider_visual": "numbers",
         "auto_rotate": true,
         "change_slides_speed": 5,
@@ -416,8 +416,8 @@
     }
   },
   "order": [
-    "valen_hero_K8dmQE",
     "benefits",
+    "valen_hero_K8dmQE",
     "slideshow",
     "brand_carousel_QGbYdX",
     "featured_collection_pBhhaF",
