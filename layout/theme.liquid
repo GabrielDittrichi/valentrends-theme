@@ -373,5 +373,41 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/553194030508" target="_blank" class="whatsapp-float" aria-label="Fale conosco no WhatsApp">
+      <svg viewBox="0 0 32 32" class="whatsapp-icon-float">
+        <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.603 4.868 1.75 7.005L2.2 29.8l6.795-1.55C11.132 29.397 13.53 30 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5c-2.138 0-4.21-.603-6.045-1.75l-4.505 1.025 1.025-4.505C5.397 20.21 4.5 18.138 4.5 16c0-6.35 5.15-11.5 11.5-11.5s11.5 5.15 11.5 11.5-5.15 11.5-11.5 11.5zM22.5 19.5c-.325-.162-1.925-.95-2.225-1.062-.3-.112-.518-.162-.737.162-.218.325-.85 1.062-1.037 1.275-.187.212-.375.237-.7.075-1.456-.725-2.694-1.637-3.75-3.45-.162-.275 0-.425.138-.588.15-.175.325-.45.487-.675.162-.225.212-.375.312-.625.1-.25.05-.475-.025-.625-.075-.15-.737-1.775-1.012-2.425-.262-.625-.537-.537-.737-.55l-.637-.012c-.225 0-.587.087-.887.412-.3.325-1.15 1.125-1.15 2.737s1.175 3.175 1.337 3.388c.162.212 2.312 3.537 5.6 4.95.787.337 1.4.537 1.887.687 1.125.35 2.15.3 2.975.187.912-.125 1.925-.787 2.2-1.55.275-.762.275-1.412.187-1.55-.087-.137-.325-.225-.65-.387z" fill="#FFF"></path>
+      </svg>
+    </a>
+    <style>
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        background-color: #20ba5a;
+      }
+      .whatsapp-icon-float {
+        width: 35px;
+        height: 35px;
+        fill: white;
+      }
+    </style>
   </body>
 </html>
