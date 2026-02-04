@@ -149,6 +149,84 @@
         "padding_bottom": 0
       }
     },
+    "featured_collection_pBhhaF": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "sale",
+        "products_to_show": 4,
+        "title": "SALE",
+        "heading_size": "h0",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "category_grid_MJijQy": {
+      "type": "category-grid",
+      "blocks": {
+        "category_item_KTFyVw": {
+          "type": "category_item",
+          "settings": {
+            "image": "shopify://shop_images/XT41103.jpg",
+            "title": "Category Name",
+            "link": ""
+          }
+        },
+        "category_item_EVBnY6": {
+          "type": "category_item",
+          "settings": {
+            "image": "shopify://shop_images/XT49724.jpg",
+            "title": "ACESSÓRIOS",
+            "link": ""
+          }
+        },
+        "category_item_A94xDr": {
+          "type": "category_item",
+          "settings": {
+            "image": "shopify://shop_images/XT49753.jpg",
+            "title": "CALÇAS",
+            "link": ""
+          }
+        },
+        "category_item_xNnBTk": {
+          "type": "category_item",
+          "settings": {
+            "image": "shopify://shop_images/XT40871.jpg",
+            "title": "BLAZERS",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_item_KTFyVw",
+        "category_item_EVBnY6",
+        "category_item_A94xDr",
+        "category_item_xNnBTk"
+      ],
+      "name": "Shop by Category",
+      "settings": {
+        "title": "CATEGORIAS",
+        "background_color": "#ffffff",
+        "padding_top": 16,
+        "padding_bottom": 28
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -165,43 +243,15 @@
         "show_view_all": true,
         "view_all_style": "outline",
         "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
+        "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "featured_collection_pBhhaF": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "sale",
-        "products_to_show": 4,
-        "title": "SALE",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "outline",
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
@@ -294,66 +344,16 @@
         "mobile_content_alignment": "center",
         "show_text_below": true
       }
-    },
-    "category_grid_MJijQy": {
-      "type": "category-grid",
-      "blocks": {
-        "category_item_KTFyVw": {
-          "type": "category_item",
-          "settings": {
-            "image": "shopify://shop_images/XT41103.jpg",
-            "title": "Category Name",
-            "link": ""
-          }
-        },
-        "category_item_EVBnY6": {
-          "type": "category_item",
-          "settings": {
-            "image": "shopify://shop_images/XT49724.jpg",
-            "title": "ACESSÓRIOS",
-            "link": ""
-          }
-        },
-        "category_item_A94xDr": {
-          "type": "category_item",
-          "settings": {
-            "image": "shopify://shop_images/XT49753.jpg",
-            "title": "CALÇAS",
-            "link": ""
-          }
-        },
-        "category_item_xNnBTk": {
-          "type": "category_item",
-          "settings": {
-            "image": "shopify://shop_images/XT40871.jpg",
-            "title": "BLAZERS",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "category_item_KTFyVw",
-        "category_item_EVBnY6",
-        "category_item_A94xDr",
-        "category_item_xNnBTk"
-      ],
-      "name": "Shop by Category",
-      "settings": {
-        "title": "CATEGORIAS",
-        "background_color": "#ffffff",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
     }
   },
   "order": [
     "benefits",
     "slideshow",
     "brand_carousel_QGbYdX",
-    "featured_collection",
     "featured_collection_pBhhaF",
+    "category_grid_MJijQy",
+    "featured_collection",
     "collection_mosaic_PG48my",
-    "banner_secondary",
-    "category_grid_MJijQy"
+    "banner_secondary"
   ]
 }
