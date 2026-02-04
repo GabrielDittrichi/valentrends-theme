@@ -177,6 +177,34 @@
         "padding_bottom": 36
       }
     },
+    "featured_collection_pBhhaF": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "sale",
+        "products_to_show": 4,
+        "title": "SALE",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "collection_mosaic_PG48my": {
       "type": "collection-mosaic",
       "blocks": {
@@ -323,6 +351,7 @@
     "slideshow",
     "brand_carousel_QGbYdX",
     "featured_collection",
+    "featured_collection_pBhhaF",
     "collection_mosaic_PG48my",
     "banner_secondary",
     "category_grid_MJijQy"
