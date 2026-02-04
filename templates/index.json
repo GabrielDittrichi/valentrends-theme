@@ -215,16 +215,49 @@
         "category_item_xNnBTk": {
           "type": "category_item",
           "settings": {
-            "image": "shopify://shop_images/XT40871.jpg",
+            "image": "shopify://shop_images/XE44692.jpg",
             "title": "CASACOS",
             "link": "shopify://collections/casacos"
           }
         },
-        "category_item_DCGcUw": {
+        "category_item_GHeWRL": {
           "type": "category_item",
           "settings": {
-            "title": "Category Name",
-            "link": ""
+            "image": "shopify://shop_images/IMG_7272.jpg",
+            "title": "BIQUINIS",
+            "link": "shopify://collections/biquinis"
+          }
+        },
+        "category_item_TAbfDN": {
+          "type": "category_item",
+          "settings": {
+            "image": "shopify://shop_images/IMG_1231.jpg",
+            "title": "BERMUDAS",
+            "link": "shopify://collections/bermudas"
+          }
+        },
+        "category_item_hcf6Mm": {
+          "type": "category_item",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5238.jpg",
+            "title": "MACACÕES",
+            "link": "shopify://collections/macacoes"
+          }
+        },
+        "category_item_aipGnE": {
+          "type": "category_item",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5231.jpg",
+            "title": "SHORTS E SAIAS",
+            "link": "shopify://collections/shorts-e-saias"
+          }
+        },
+        "category_item_zqBWdf": {
+          "type": "category_item",
+          "settings": {
+            "image": "shopify://shop_images/IMG_7280.jpg",
+            "title": "VESTIDOS",
+            "link": "shopify://collections/vestidos"
           }
         }
       },
@@ -233,7 +266,11 @@
         "category_item_KTFyVw",
         "category_item_A94xDr",
         "category_item_xNnBTk",
-        "category_item_DCGcUw"
+        "category_item_GHeWRL",
+        "category_item_TAbfDN",
+        "category_item_hcf6Mm",
+        "category_item_aipGnE",
+        "category_item_zqBWdf"
       ],
       "name": "Shop by Category",
       "settings": {
