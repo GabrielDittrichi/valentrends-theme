@@ -102,35 +102,42 @@
           "type": "brand_logo",
           "settings": {
             "image": "shopify://shop_images/Captura_de_tela_2026-02-03_130632-removebg-preview.png",
-            "link": ""
+            "link": "shopify://collections/frontpage"
           }
         },
         "brand_logo_cdqMLY": {
           "type": "brand_logo",
           "settings": {
             "image": "shopify://shop_images/Captura_de_tela_2026-02-03_125415-removebg-preview.png",
-            "link": ""
+            "link": "shopify://collections/isa-paes"
           }
         },
         "brand_logo_EYmXJL": {
           "type": "brand_logo",
           "settings": {
             "image": "shopify://shop_images/Captura_de_tela_2026-02-03_130528-removebg-preview.png",
-            "link": ""
+            "link": "shopify://collections/fruta-cor"
           }
         },
         "brand_logo_UM4Pnd": {
           "type": "brand_logo",
           "settings": {
             "image": "shopify://shop_images/skazi-1-215x215-removebg-preview.png",
-            "link": ""
+            "link": "shopify://collections/skazi"
           }
         },
         "brand_logo_qDMch8": {
           "type": "brand_logo",
           "settings": {
             "image": "shopify://shop_images/Captura_de_tela_2026-02-03_130846-removebg-preview.png",
-            "link": ""
+            "link": "shopify://collections/madre-reina"
+          }
+        },
+        "brand_logo_XKPyAR": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/Captura_de_tela_2026-02-04_094235-removebg-preview.png",
+            "link": "shopify://collections/tufi-duek"
           }
         }
       },
@@ -139,7 +146,8 @@
         "brand_logo_cdqMLY",
         "brand_logo_EYmXJL",
         "brand_logo_UM4Pnd",
-        "brand_logo_qDMch8"
+        "brand_logo_qDMch8",
+        "brand_logo_XKPyAR"
       ],
       "name": "Brand Carousel",
       "settings": {
