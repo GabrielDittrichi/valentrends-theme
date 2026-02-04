@@ -283,7 +283,7 @@
             "subtitle": ">>",
             "link": "shopify://collections",
             "text_color": "white",
-            "width": "full"
+            "width": "half"
           }
         },
         "mosaic_item_bAWU6W": {
@@ -295,7 +295,7 @@
             "subtitle": "PEÇAS SELECIONADAS COM DESCONTO",
             "link": "shopify://collections/frontpage",
             "text_color": "white",
-            "width": "full"
+            "width": "half"
           }
         },
         "mosaic_item_PDP8nK": {
