@@ -64,9 +64,9 @@
         "slide_x9BBrB": {
           "type": "slide",
           "settings": {
-            "collection": "conjuntos",
+            "collection": "sale",
             "image_desktop": "shopify://shop_images/XT49753.jpg",
-            "image_mobile": "shopify://shop_images/XT49713.jpg"
+            "image_mobile": "shopify://shop_images/tax.png"
           }
         },
         "slide_ALYzAU": {
@@ -74,7 +74,7 @@
           "settings": {
             "collection": "conjuntos",
             "image_desktop": "shopify://shop_images/XT49753.jpg",
-            "image_mobile": "shopify://shop_images/XT49713.jpg"
+            "image_mobile": "shopify://shop_images/tax_1.png"
           }
         },
         "slide_fyKLb7": {
@@ -82,7 +82,7 @@
           "settings": {
             "collection": "conjuntos",
             "image_desktop": "shopify://shop_images/XT49753.jpg",
-            "image_mobile": "shopify://shop_images/XT49713.jpg"
+            "image_mobile": "shopify://shop_images/tax_2.png"
           }
         }
       },
