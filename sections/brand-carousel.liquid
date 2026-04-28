@@ -107,88 +107,97 @@
 {% endschema %}
 
 <style>
-  .brand-marquee-section {
-    background-color: {{ section.settings.background_color }};
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-    overflow: hidden;
-    width: 100vw; /* Força a seção a ir de ponta a ponta */
-    margin-left: calc(-50vw + 50%); /* Corrige o posicionamento fora do page-width padrão */
-    display: flex;
-  }
+      .brand-marquee-section {
+      background-color: {{ section.settings.background_color }};
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      overflow: hidden;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      display: flex;
 
-  .brand-marquee-track {
-    display: flex;
-    width: max-content;
-    align-items: center;
-    gap: {{ section.settings.gap }}px;
-    padding-left: {{ section.settings.gap }}px;
-    /* A animação translada 50% da largura total (que é duplicada no HTML) */
-    animation: scrollMarquee {{ section.settings.speed }}s linear infinite;
-  }
-
-  /* Pausa a animação sutilmente quando o mouse passa por cima (UX de Luxo) */
-  .brand-marquee-track:hover {
-    animation-play-state: paused;
-  }
-
-  @keyframes scrollMarquee {
-    0% {
-      transform: translateX(0);
+      /* NOVAS ADIÇÕES: Bordas e Desvanecimento */
+      border-top: 1px solid #EAEAEA;
+      border-bottom: 1px solid #EAEAEA;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
     }
-    100% {
-      transform: translateX(calc(-50% - ({{ section.settings.gap }}px / 2)));
-    }
-  }
 
-  .brand-marquee__item {
-    flex: 0 0 auto;
-    width: {{ section.settings.logo_width }}px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s ease;
-  }
+      .brand-marquee-track {
+        display: flex;
+        width: max-content;
+        align-items: center;
+        gap: {{ section.settings.gap }}px;
+        padding-left: {{ section.settings.gap }}px;
+        /* A animação translada 50% da largura total (que é duplicada no HTML) */
+        animation: scrollMarquee {{ section.settings.speed }}s linear infinite;
+      }
 
-  .brand-marquee__item:hover {
-    opacity: 0.6; /* Efeito hover mais elegante que o scale para logos */
-  }
 
-  .brand-marquee__link {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
 
-  .brand-marquee__image {
+      @keyframes scrollMarquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-50% - ({{ section.settings.gap }}px / 2)));
+        }
+      }
+
+      .brand-marquee__item {
+        flex: 0 0 auto;
+        width: {{ section.settings.logo_width }}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.3s ease;
+      }
+
+
+      .brand-marquee__link {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .brand-marquee__image {
     width: 100%;
     height: auto;
     object-fit: contain;
     display: block;
+
+    /* NOVAS ADIÇÕES: Monocromia e Contraste */
+    filter: grayscale(100%) opacity(60%);
+    transition: filter 0.4s ease;
   }
 
-  .brand-marquee__placeholder {
-    width: 100%;
-    height: 60px;
-    background-color: #e5e5e5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  /* NOVA ADIÇÃO: Retorno suave da cor ao focar na logo específica */
+  .brand-marquee__item:hover .brand-marquee__image {
+    filter: grayscale(0%) opacity(100%);
   }
 
-  @media (max-width: 768px) {
-    .brand-marquee__item {
-      width: {{ section.settings.mobile_logo_width }}px;
-    }
-    .brand-marquee-section {
-        padding-top: {{ section.settings.padding_top | times: 0.75 }}px;
-        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 }}px;
-    }
-  }
+      .brand-marquee__placeholder {
+        width: 100%;
+        height: 60px;
+        background-color: #e5e5e5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      @media (max-width: 768px) {
+        .brand-marquee__item {
+          width: {{ section.settings.mobile_logo_width }}px;
+        }
+        .brand-marquee-section {
+            padding-top: {{ section.settings.padding_top | times: 0.75 }}px;
+            padding-bottom: {{ section.settings.padding_bottom | times: 0.75 }}px;
+        }
+      }
 </style>
 
 <div class="brand-marquee-section">
