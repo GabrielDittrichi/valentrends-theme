@@ -90,21 +90,38 @@
 {%- endstyle -%}
 
 <style>
-  /* --- NEW LUXURY: SEÇÃO E TÍTULO --- */
+  /* --- NEW LUXURY: SEÇÃO E RESPIRO --- */
   #collection-{{ section.id }} {
-    border-top: 1px solid #EAEAEA;
-    padding-top: 5rem;
+    padding-top: 8rem; /* Espaçamento agressivo para isolar a seção */
+    padding-bottom: 8rem;
+    background-color: #FFFFFF; /* Garante pureza do fundo */
   }
+
+  /* --- NEW LUXURY: TIPOGRAFIA DE TÍTULO CHAMATIVA --- */
   #collection-{{ section.id }} .collection__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 6rem; /* Distância focal para os produtos */
   }
   #collection-{{ section.id }} .collection__title .title {
-    font-size: 1.3rem !important;
+    font-size: 2.8rem !important; /* Escala editorial */
     text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    font-weight: 400;
+    letter-spacing: 0.3rem;
+    font-weight: 300; /* Leveza e sofisticação */
+    color: #000000;
+    margin: 0;
+  }
+  /* Linha de ancoragem dourada */
+  #collection-{{ section.id }} .collection__title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: #B18D60;
+    margin-top: 2rem;
   }
 
   /* --- NEW LUXURY: EDGES (TAGS FLUTUANTES) --- */
@@ -113,8 +130,8 @@
   }
   #Slider-{{ section.id }} .card__badge {
     position: absolute !important;
-    top: 1rem;
-    left: 1rem;
+    top: 1.5rem;
+    left: 1.5rem;
     z-index: 3;
     margin: 0 !important;
     padding: 0 !important;
@@ -127,33 +144,23 @@
     text-transform: lowercase !important;
     font-weight: 400 !important;
     letter-spacing: 0.05rem;
-    padding: 4px 10px;
+    padding: 6px 14px;
   }
 
-  /* --- NEW LUXURY: BENTO BOX GRID (DESKTOP) --- */
+  /* --- NEW LUXURY: GRID SIMÉTRICO EDITORIAL (DESKTOP) --- */
   @media screen and (min-width: 990px) {
     #Slider-{{ section.id }} {
       display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 2px !important; /* Espaçamento editorial milimétrico */
+      grid-template-columns: repeat(4, 1fr) !important; /* 4 colunas limpas */
+      gap: 3rem !important; /* Respiro amplo entre os cards */
     }
     #Slider-{{ section.id }} .grid__item {
       width: 100% !important;
       max-width: 100% !important;
       margin: 0 !important;
     }
-    /* Destaque do primeiro item (Span 2x2) */
-    #Slider-{{ section.id }} .grid__item:first-child {
-      grid-column: span 2;
-      grid-row: span 2;
-    }
-    /* Adaptação de altura para a imagem de destaque não distorcer no grid */
-    #Slider-{{ section.id }} .grid__item:first-child .card__media {
-      height: 100%;
-    }
-    #Slider-{{ section.id }} .grid__item:first-child .media {
-      height: 100%;
-      position: absolute;
+    #Slider-{{ section.id }} .card__media {
+      height: auto;
     }
   }
 </style>
