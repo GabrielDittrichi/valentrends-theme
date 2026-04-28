@@ -3630,3 +3630,55 @@ details-disclosure > details {
     background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%) !important;
     z-index: 1;
 }
+
+<style>
+  /* --- NEW LUXURY: MENU PRINCIPAL --- */
+  .header__inline-menu .list-menu__item {
+    letter-spacing: 0.15rem !important;
+    font-weight: 300 !important;
+    text-transform: uppercase !important;
+    font-size: 1.2rem !important;
+    transition: color 0.4s ease !important;
+  }
+  .header__inline-menu .list-menu__item:hover {
+    color: #B18D60 !important; /* Dourado de destaque */
+  }
+
+  /* --- NEW LUXURY: BADGES E ETIQUETAS --- */
+  .badge {
+    background-color: #000000 !important; /* Preto sólido */
+    color: #FFFFFF !important; /* Texto branco */
+    border: none !important;
+    text-transform: lowercase !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.2rem !important; /* Espaçamento ultra-largo */
+    font-size: 1rem !important;
+    padding: 0.6rem 1.2rem !important;
+    box-shadow: none !important;
+  }
+
+  /* --- NEW LUXURY: CARTÕES DE PRODUTO (INFO) --- */
+  .card-information {
+    padding-top: 2rem !important; /* Mais respiro entre foto e texto */
+  }
+  .card__heading {
+    font-size: 1.2rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.15rem !important;
+    text-transform: uppercase !important;
+    color: #333333 !important;
+  }
+  .price {
+    font-size: 1.4rem !important;
+    font-weight: 400 !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  /* --- NEW LUXURY: HOVER CROSSFADE (SEGUNDA IMAGEM) --- */
+  .card__media .media img {
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out !important;
+  }
+  .card-wrapper:hover .card__media .media img:first-child {
+    transform: scale(1.03); /* Ligeiro zoom out na transição */
+  }
+</style>
