@@ -3595,3 +3595,38 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* FORÇAMENTO DE ESTRUTURA LUXURY */
+.badge {
+    border-radius: 0 !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+    text-transform: lowercase !important;
+}
+
+.price-item--sale {
+    color: #B18D60 !important;
+}
+
+.card__heading, .card__heading a {
+    text-transform: uppercase !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.1rem !important;
+}
+
+.card__inner {
+    border-radius: 0 !important;
+}
+
+/* Escurecimento sutil nas imagens de banner para destacar o texto branco */
+.banner__media::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%) !important;
+    z-index: 1;
+}
