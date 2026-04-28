@@ -3744,3 +3744,62 @@ details-disclosure > details {
   background-color: #000 !important;
   color: #fff !important;
 }
+
+/* ==========================================
+   PDP NEW LUXURY: LAYOUT E RETENÇÃO
+   ========================================== */
+
+@media screen and (min-width: 990px) {
+  /* Galeria Empilhada (Scroll Contínuo) */
+  .product--stacked .product__media-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  
+  .product--stacked .product__media-item {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Bloco de Informações Fixo (Sticky Info) */
+  .product__info-wrapper {
+    position: sticky !important;
+    top: 10rem !important; /* Ajuste conforme a altura do seu header */
+    height: fit-content !important;
+  }
+}
+
+/* Ocultação de Botões de Checkout Dinâmico (Shop Pay / PayPal) */
+/* Isso foca a atenção no botão principal de Adicionar ao Carrinho */
+.shopify-payment-button {
+  display: none !important;
+}
+
+/* Accordions Minimalistas */
+.product__accordion {
+  border-top: 1px solid #EAEAEA !important;
+  border-bottom: none !important;
+  background: transparent !important;
+}
+
+.product__accordion summary {
+  padding: 2rem 0 !important;
+}
+
+.product__accordion .accordion__title {
+  font-size: 1.2rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-weight: 400;
+}
+
+.product__accordion details[open] summary {
+  margin-bottom: 1.5rem;
+}
+
+.product__accordion .accordion__content {
+  padding-bottom: 2rem;
+  line-height: 1.6;
+  color: #666;
+}
