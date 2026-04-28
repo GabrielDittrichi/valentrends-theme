@@ -1,6 +1,6 @@
 {% schema %}
 {
-  "name": "Brand Carousel",
+  "name": "Brand Marquee",
   "settings": [
     {
       "type": "range",
@@ -36,31 +36,41 @@
       "type": "color",
       "id": "background_color",
       "label": "Background Color",
-      "default": "#ffffff"
+      "default": "#F3F3F3"
     },
     {
-        "type": "header",
-        "content": "Section Padding"
+      "type": "header",
+      "content": "Section Padding"
     },
     {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Padding Top",
-        "default": 36
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
     },
     {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Padding Bottom",
-        "default": 36
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "sec",
+      "label": "Animation Speed",
+      "default": 25
     }
   ],
   "blocks": [
@@ -83,13 +93,13 @@
   ],
   "presets": [
     {
-      "name": "Brand Carousel",
+      "name": "Brand Marquee",
       "blocks": [
-        {"type": "brand_logo"},
-        {"type": "brand_logo"},
-        {"type": "brand_logo"},
-        {"type": "brand_logo"},
-        {"type": "brand_logo"}
+        { "type": "brand_logo" },
+        { "type": "brand_logo" },
+        { "type": "brand_logo" },
+        { "type": "brand_logo" },
+        { "type": "brand_logo" }
       ]
     }
   ]
@@ -97,97 +107,120 @@
 {% endschema %}
 
 <style>
-  .brand-carousel-section {
+  .brand-marquee-section {
     background-color: {{ section.settings.background_color }};
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     overflow: hidden;
-  }
-
-  .brand-carousel {
+    width: 100vw; /* Força a seção a ir de ponta a ponta */
+    margin-left: calc(-50vw + 50%); /* Corrige o posicionamento fora do page-width padrão */
     display: flex;
-    overflow-x: auto;
-    gap: {{ section.settings.gap }}px;
-    padding: 20px 0;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    cursor: grab;
+  }
+
+  .brand-marquee-track {
+    display: flex;
+    width: max-content;
     align-items: center;
+    gap: {{ section.settings.gap }}px;
+    padding-left: {{ section.settings.gap }}px;
+    /* A animação translada 50% da largura total (que é duplicada no HTML) */
+    animation: scrollMarquee {{ section.settings.speed }}s linear infinite;
   }
 
-  .brand-carousel::-webkit-scrollbar {
-    display: none;
+  /* Pausa a animação sutilmente quando o mouse passa por cima (UX de Luxo) */
+  .brand-marquee-track:hover {
+    animation-play-state: paused;
   }
 
-  .brand-carousel.active {
-    cursor: grabbing;
-    scroll-behavior: auto; /* Disable smooth scroll while dragging */
+  @keyframes scrollMarquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - ({{ section.settings.gap }}px / 2)));
+    }
   }
 
-  .brand-carousel__item {
+  .brand-marquee__item {
     flex: 0 0 auto;
     width: {{ section.settings.logo_width }}px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: opacity 0.3s ease;
   }
 
-  .brand-carousel__item:hover {
-    transform: scale(1.05);
+  .brand-marquee__item:hover {
+    opacity: 0.6; /* Efeito hover mais elegante que o scale para logos */
   }
 
-  .brand-carousel__link {
+  .brand-marquee__link {
     display: block;
     width: 100%;
     height: 100%;
   }
 
-  .brand-carousel__image {
+  .brand-marquee__image {
     width: 100%;
     height: auto;
     object-fit: contain;
     display: block;
   }
 
-  .brand-carousel__placeholder {
+  .brand-marquee__placeholder {
     width: 100%;
-    height: 100px;
-    background-color: #f0f0f0;
+    height: 60px;
+    background-color: #e5e5e5;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #999;
-    font-size: 12px;
-    border: 1px dashed #ccc;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   @media (max-width: 768px) {
-    .brand-carousel__item {
+    .brand-marquee__item {
       width: {{ section.settings.mobile_logo_width }}px;
     }
-    .brand-carousel-section {
+    .brand-marquee-section {
         padding-top: {{ section.settings.padding_top | times: 0.75 }}px;
         padding-bottom: {{ section.settings.padding_bottom | times: 0.75 }}px;
     }
   }
 </style>
 
-<div class="brand-carousel-section page-width">
-  <div class="brand-carousel" id="BrandCarousel-{{ section.id }}">
+<div class="brand-marquee-section">
+  <div class="brand-marquee-track">
     {% for block in section.blocks %}
-      <div class="brand-carousel__item" {{ block.shopify_attributes }}>
+      <div class="brand-marquee__item" {{ block.shopify_attributes }}>
         {% if block.settings.link != blank %}
-          <a href="{{ block.settings.link }}" class="brand-carousel__link">
+          <a href="{{ block.settings.link }}" class="brand-marquee__link">
         {% endif %}
-        
+
         {% if block.settings.image != blank %}
-          {{ block.settings.image | image_url: width: 400 | image_tag: class: 'brand-carousel__image', loading: 'lazy' }}
+          {{ block.settings.image | image_url: width: 400 | image_tag: class: 'brand-marquee__image', loading: 'lazy' }}
         {% else %}
-          <div class="brand-carousel__placeholder">
-            Brand Logo
-          </div>
+          <div class="brand-marquee__placeholder">Brand</div>
+        {% endif %}
+
+        {% if block.settings.link != blank %}
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    {% for block in section.blocks %}
+      <div class="brand-marquee__item" aria-hidden="true">
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}" class="brand-marquee__link" tabindex="-1">
+        {% endif %}
+
+        {% if block.settings.image != blank %}
+          {{ block.settings.image | image_url: width: 400 | image_tag: class: 'brand-marquee__image', loading: 'lazy' }}
+        {% else %}
+          <div class="brand-marquee__placeholder">Brand</div>
         {% endif %}
 
         {% if block.settings.link != blank %}
@@ -197,37 +230,3 @@
     {% endfor %}
   </div>
 </div>
-
-<script>
-  (function() {
-    const slider = document.getElementById('BrandCarousel-{{ section.id }}');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    slider.addEventListener('mousedown', (e) => {
-      isDown = true;
-      slider.classList.add('active');
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener('mouseleave', () => {
-      isDown = false;
-      slider.classList.remove('active');
-    });
-
-    slider.addEventListener('mouseup', () => {
-      isDown = false;
-      slider.classList.remove('active');
-    });
-
-    slider.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2; // Scroll-fast
-      slider.scrollLeft = scrollLeft - walk;
-    });
-  })();
-</script>
