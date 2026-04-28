@@ -3644,18 +3644,58 @@ details-disclosure > details {
     color: #B18D60 !important; /* Dourado de destaque */
   }
 
-  /* --- NEW LUXURY: BADGES E ETIQUETAS --- */
-  .badge {
-    background-color: #000000 !important; /* Preto sólido */
-    color: #FFFFFF !important; /* Texto branco */
-    border: none !important;
-    text-transform: lowercase !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.2rem !important; /* Espaçamento ultra-largo */
-    font-size: 1rem !important;
-    padding: 0.6rem 1.2rem !important;
-    box-shadow: none !important;
-  }
+/* ==========================================
+   NEW LUXURY: BADGES E ETIQUETAS (CONSOLIDAÇÃO)
+   ========================================== */
+
+/* Posicionamento do container da etiqueta sobre a imagem */
+.card__inner {
+  position: relative !important;
+}
+
+.card__badge {
+  position: absolute !important;
+  top: 1.2rem !important;
+  left: 1.2rem !important;
+  z-index: 3 !important;
+  display: flex !important;
+  flex-direction: column !important; /* Permite empilhar etiquetas se houver mais de uma */
+  gap: 0.5rem !important;
+  align-items: flex-start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Estrutura Base (Geometria e Tipografia) */
+.badge {
+  border-radius: 0px !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.15rem !important;
+  text-transform: uppercase !important;
+  padding: 0.5rem 1rem !important;
+  box-shadow: none !important;
+  line-height: 1 !important;
+  backdrop-filter: none !important;
+}
+
+/* Regra 1: Produto Esgotado (Prioridade Visual Alta - Bloco Sólido) */
+.badge.price__badge-sold-out,
+.badge--bottom-left.color-scheme-1,
+.badge--bottom-left.color-scheme-inverse { 
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #000000 !important;
+}
+
+/* Regra 2: Produto em Promoção (Contraste Invertido - Fundo Branco e Borda) */
+.badge.price__badge-sale,
+.badge--bottom-left.color-scheme-2,
+.badge--bottom-left.color-scheme-accent-1 {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
 
   /* --- NEW LUXURY: CARTÕES DE PRODUTO (INFO) --- */
   .card-information {

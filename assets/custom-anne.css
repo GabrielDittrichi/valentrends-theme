@@ -156,16 +156,6 @@ body {
   color: #000000; /* Preço regular em Preto */
 }
 
-/* Badges Minimalistas */
-.badge {
-  background-color: #FFFFFF !important;
-  color: #000000 !important;
-  border: 1px solid #000000 !important;
-  border-radius: 0px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.05rem;
-}
-
 /* Quick Add: Oculto no desktop, exibido no Hover */
 @media screen and (min-width: 990px) {
   .card-wrapper .quick-add {
