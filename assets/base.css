@@ -3644,7 +3644,7 @@ details-disclosure > details {
   }
 
 /* ==========================================
-   NEW LUXURY: CORREÇÃO DE DUPLICIDADE (BADGES)
+   NEW LUXURY: CORREÇÃO E REFINAMENTO VISUAL (BADGES)
    ========================================== */
 
 /* 1. Oculta definitivamente o badge redundante do bloco de texto */
@@ -3652,13 +3652,14 @@ details-disclosure > details {
   display: none !important;
 }
 
-/* 2. Posiciona e exibe APENAS o badge sobre a fotografia */
+/* 2. Força o posicionamento exato no canto superior esquerdo da foto */
 .card__inner .card__badge {
   position: absolute !important;
-  top: 1rem !important;
-  left: 1rem !important;
-  bottom: auto !important; /* Anula posições nativas inferiores */
-  right: auto !important;  /* Anula posições nativas direitas */
+  top: 1.5rem !important;
+  left: 1.5rem !important;
+  bottom: auto !important; /* Neutraliza âncora inferior do Dawn */
+  right: auto !important;  /* Neutraliza âncora direita do Dawn */
+  transform: none !important; /* Neutraliza alinhamentos centrais automáticos */
   z-index: 3 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -3666,35 +3667,43 @@ details-disclosure > details {
   margin: 0 !important;
   padding: 0 !important;
 }
-/* Estrutura Base (Geometria e Tipografia) */
+
+/* 3. Estrutura Refinada (Soft Luxury: Geometria contida e Micro-interação) */
 .badge {
-  border-radius: 0px !important;
-  font-size: 0.9rem !important;
+  border-radius: 4px !important; /* Quebra a rispidez geométrica com elegância */
+  font-size: 0.85rem !important;
   font-weight: 500 !important;
   letter-spacing: 0.15rem !important;
   text-transform: uppercase !important;
-  padding: 0.5rem 1rem !important;
-  box-shadow: none !important;
+  padding: 0.6rem 1.2rem !important;
   line-height: 1 !important;
-  backdrop-filter: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important; /* Sombra premium e difusa */
+  backdrop-filter: blur(4px) !important; /* Efeito translúcido leve */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease !important;
 }
 
-/* Regra 1: Produto Esgotado (Prioridade Visual Alta - Bloco Sólido) */
+/* 4. Efeito Visual: Levitação suave ao passar o mouse no card */
+.card-wrapper:hover .badge {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Regra 1: Produto Esgotado */
 .badge.price__badge-sold-out,
 .badge--bottom-left.color-scheme-1,
 .badge--bottom-left.color-scheme-inverse { 
   background-color: #000000 !important;
   color: #FFFFFF !important;
-  border: 1px solid #000000 !important;
+  border: 1px solid rgba(255,255,255,0.1) !important; /* Borda quase imperceptível para profundidade */
 }
 
-/* Regra 2: Produto em Promoção (Contraste Invertido - Fundo Branco e Borda) */
+/* Regra 2: Produto em Promoção */
 .badge.price__badge-sale,
 .badge--bottom-left.color-scheme-2,
 .badge--bottom-left.color-scheme-accent-1 {
-  background-color: #FFFFFF !important;
+  background-color: rgba(255, 255, 255, 0.95) !important; /* Branco levemente vítreo */
   color: #000000 !important;
-  border: 1px solid #000000 !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
 }
 
   /* --- NEW LUXURY: CARTÕES DE PRODUTO (INFO) --- */
