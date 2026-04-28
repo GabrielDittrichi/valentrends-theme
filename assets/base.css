@@ -3710,3 +3710,37 @@ details-disclosure > details {
   .card-wrapper:hover .card__media .media img:first-child {
     transform: scale(1.03); /* Ligeiro zoom out na transição */
   }
+
+  .card__inner {
+  position: relative !important;
+}
+
+.luxury-badge-wrapper {
+  position: absolute !important;
+  top: 15px !important;
+  left: 15px !important;
+  z-index: 10 !important;
+  display: flex !important;
+  flex-direction: column;
+}
+
+.luxury-badge {
+  border-radius: 4px !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.15rem !important;
+  text-transform: uppercase;
+  padding: 6px 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+  backdrop-filter: blur(4px);
+}
+
+.luxury-badge--sale {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #000 !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+}
+
+.luxury-badge--sold-out {
+  background-color: #000 !important;
+  color: #fff !important;
+}
