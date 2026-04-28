@@ -3631,7 +3631,6 @@ details-disclosure > details {
     z-index: 1;
 }
 
-<style>
   /* --- NEW LUXURY: MENU PRINCIPAL --- */
   .header__inline-menu .list-menu__item {
     letter-spacing: 0.15rem !important;
@@ -3645,27 +3644,28 @@ details-disclosure > details {
   }
 
 /* ==========================================
-   NEW LUXURY: BADGES E ETIQUETAS (CONSOLIDAÇÃO)
+   NEW LUXURY: CORREÇÃO DE DUPLICIDADE (BADGES)
    ========================================== */
 
-/* Posicionamento do container da etiqueta sobre a imagem */
-.card__inner {
-  position: relative !important;
+/* 1. Oculta definitivamente o badge redundante do bloco de texto */
+.card__content .card__badge {
+  display: none !important;
 }
 
-.card__badge {
+/* 2. Posiciona e exibe APENAS o badge sobre a fotografia */
+.card__inner .card__badge {
   position: absolute !important;
-  top: 1.2rem !important;
-  left: 1.2rem !important;
+  top: 1rem !important;
+  left: 1rem !important;
+  bottom: auto !important; /* Anula posições nativas inferiores */
+  right: auto !important;  /* Anula posições nativas direitas */
   z-index: 3 !important;
   display: flex !important;
-  flex-direction: column !important; /* Permite empilhar etiquetas se houver mais de uma */
+  flex-direction: column !important;
   gap: 0.5rem !important;
-  align-items: flex-start !important;
   margin: 0 !important;
   padding: 0 !important;
 }
-
 /* Estrutura Base (Geometria e Tipografia) */
 .badge {
   border-radius: 0px !important;
@@ -3721,4 +3721,3 @@ details-disclosure > details {
   .card-wrapper:hover .card__media .media img:first-child {
     transform: scale(1.03); /* Ligeiro zoom out na transição */
   }
-</style>
