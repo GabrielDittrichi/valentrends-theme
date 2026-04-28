@@ -87,3 +87,41 @@ body {
 .button:hover {
   background-color: #333;
 }
+
+/* Reset Editorial - Geometria e Cores */
+:root {
+  --buttons-radius: 0px !important;
+  --inputs-radius: 0px !important;
+  --badges-radius: 0px !important;
+  --product-card-corner-radius: 0px !important;
+  --collection-card-corner-radius: 0px !important;
+  --media-radius: 0px !important;
+  --text-boxes-radius: 0px !important;
+  --popup-corner-radius: 0px !important;
+  
+  /* Refinamento de Cores */
+  --color-base-accent-1: #B18D60 !important; /* Dourado */
+  --color-base-background-2: #F3F3F3 !important; /* Cinza Suave */
+}
+
+/* Espaçamento e Tipografia do Header */
+.list-menu__item {
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+.list-menu__item:hover {
+  color: #B18D60;
+}
+
+/* Transição de Página Suave (Fade in nativo) */
+body {
+  animation: fadeInPremium 0.8s ease-in-out;
+}
+
+@keyframes fadeInPremium {
+  0% { opacity: 0; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
