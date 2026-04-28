@@ -494,7 +494,7 @@
                   <p class="cross-sell__product-title">{{ product.title | truncate: 20 }}</p>
                   <p class="cross-sell__price">{{ product.price | money }}</p>
                   <product-form>
-                    {%- form 'product', product -%}
+                    {%- form 'product', product, class: 'cross-sell__form' -%}
                       <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                       <button type="submit" name="add" class="cross-sell__button">+ Adicionar</button>
                     {%- endform -%}
@@ -610,3 +610,61 @@
     </div>
   </div>
 </cart-drawer>
+
+<script>
+  document.addEventListener('submit', function (event) {
+    /* Verifica se a ação veio do nosso botão de cross-sell */
+    if (!event.target.matches('.cross-sell__form')) return;
+    event.preventDefault();
+
+    const form = event.target;
+    const button = form.querySelector('.cross-sell__button');
+    const formData = new FormData(form);
+
+    /* Solicita à API do Shopify que devolva o HTML atualizado do carrinho */
+    formData.append('sections', 'cart-drawer,cart-icon-bubble');
+    formData.append('sections_url', window.location.pathname);
+
+    /* Feedback visual de Luxo */
+    button.textContent = 'Aguarde...';
+    button.style.opacity = '0.6';
+    button.disabled = true;
+
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((parsedState) => {
+        const cartDrawer = document.querySelector('cart-drawer');
+
+        /* Atualiza nativamente as seções renderizadas do Dawn */
+        if (cartDrawer && parsedState.sections) {
+          cartDrawer.getSectionsToRender().forEach((section) => {
+            const sectionElement = section.selector
+              ? document.querySelector(section.selector)
+              : document.getElementById(section.id);
+            if (sectionElement && parsedState.sections[section.id]) {
+              sectionElement.innerHTML = cartDrawer.getSectionInnerHTML(
+                parsedState.sections[section.id],
+                section.selector
+              );
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        console.error('Erro ao processar adição de luxo:', error);
+        button.textContent = 'Erro';
+      })
+      .finally(() => {
+        /* Restaura o botão caso a atualização demore */
+        button.textContent = '+ Adicionar';
+        button.style.opacity = '1';
+        button.disabled = false;
+      });
+  });
+</script>
