@@ -125,3 +125,68 @@ body {
   0% { opacity: 0; transform: translateY(5px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================
+   ESTRUTURA DE CARDS - NEW LUXURY 
+   ========================================== */
+
+/* Fundo neutro caso a imagem não preencha os 3:4 */
+.card-wrapper .card__inner {
+  background-color: #F3F3F3 !important;
+}
+
+/* Título truncado em 1 linha */
+.card-wrapper .card__heading {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+/* Hierarquia de Preços - Cores */
+.card-wrapper .price-item--sale {
+  color: #B18D60 !important; /* Preço atual promocional em Dourado */
+}
+.card-wrapper .price__sale .price-item--regular {
+  color: #999999 !important; /* Preço antigo riscado em Cinza */
+  text-decoration-color: #999999 !important;
+}
+.card-wrapper .price-item--regular {
+  color: #000000; /* Preço regular em Preto */
+}
+
+/* Badges Minimalistas */
+.badge {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+  border-radius: 0px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05rem;
+}
+
+/* Quick Add: Oculto no desktop, exibido no Hover */
+@media screen and (min-width: 990px) {
+  .card-wrapper .quick-add {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 2;
+    width: calc(100% - 20px);
+    margin: 0;
+  }
+  
+  .card-wrapper .card__inner {
+    position: relative;
+  }
+
+  .card-wrapper:hover .quick-add {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
