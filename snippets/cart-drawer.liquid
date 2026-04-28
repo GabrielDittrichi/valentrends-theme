@@ -258,7 +258,10 @@
                             {%- endif -%}
 
                             {%- if item.variant.available and item.unit_price_measurement -%}
-                              {% render 'unit-price', price: item.unit_price, measurement: item.unit_price_measurement %}
+                              {% render 'unit-price',
+                                price: item.unit_price,
+                                measurement: item.unit_price_measurement
+                              %}
                             {%- endif -%}
                           </div>
                         </td>
@@ -474,6 +477,34 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
+      {%- if settings.cart_drawer_collection != blank -%}
+        <div class="cart-drawer__cross-sell">
+          <p class="cross-sell__title">Complete o Look</p>
+          <div class="cross-sell__grid">
+            {%- for product in settings.cart_drawer_collection.products limit: 2 -%}
+              <div class="cross-sell__item">
+                <div class="cross-sell__media">
+                  <img
+                    src="{{ product.featured_media | image_url: width: 150 }}"
+                    alt="{{ product.title }}"
+                    loading="lazy"
+                  >
+                </div>
+                <div class="cross-sell__info">
+                  <p class="cross-sell__product-title">{{ product.title | truncate: 20 }}</p>
+                  <p class="cross-sell__price">{{ product.price | money }}</p>
+                  <product-form>
+                    {%- form 'product', product -%}
+                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                      <button type="submit" name="add" class="cross-sell__button">+ Adicionar</button>
+                    {%- endform -%}
+                  </product-form>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
