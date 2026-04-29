@@ -143,6 +143,24 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "14082006724220070571": {
+        "type": "shopify://apps/savepay-pix-com-desconto/blocks/trigger_body/10f9b622-3935-46f8-947f-8b4011493b26",
+        "disabled": false,
+        "settings": {
+          "savepay_button_description": "PIX 7% OFF",
+          "savepay_checkout_button": "FINALIZAR A COMPRA",
+          "savepay_insert_position": "before",
+          "savepay_button_html": "",
+          "savepay_button_css": "",
+          "savepay_cart_form_selector": "",
+          "savepay_custom_js": "",
+          "savepay_checkout_button_wrapper": "",
+          "savepay_apply_mode": "default",
+          "savepay_debug_mode": "false"
+        }
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
