@@ -492,15 +492,22 @@
 
               <div class="cross-sell__item">
                 <div class="cross-sell__media">
-                  <img
-                    src="{{ product.featured_media | image_url: width: 100 }}"
-                    alt="{{ product.title }}"
-                    loading="lazy"
-                  >
+                  <a href="{{ product.url }}">
+                    <img
+                      src="{{ product.featured_media | image_url: width: 100 }}"
+                      alt="{{ product.title }}"
+                      loading="lazy"
+                    >
+                  </a>
                 </div>
                 <div class="cross-sell__info">
                   <div class="cross-sell__text-row">
-                    <p class="cross-sell__product-title">{{ product.title | truncate: 30 }}</p>
+                    <p
+                      class="cross-sell__product-title"
+                      style="max-width: 25ch; white-space: normal; word-wrap: break-word;"
+                    >
+                      {{ product.title }}
+                    </p>
                     <p class="cross-sell__price">{{ product.price | money }}</p>
                   </div>
                   <product-form>
@@ -520,6 +527,10 @@
                   </product-form>
                 </div>
               </div>
+
+              {%- unless forloop.last -%}
+                <hr class="cross-sell__divider" style="border: none; border-top: 1px solid #e2e2e2; margin: 15px 0;">
+              {%- endunless -%}
             {%- endfor -%}
           </div>
         </div>
