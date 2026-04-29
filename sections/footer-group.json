@@ -13,6 +13,9 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "custom_css": [
+        "div {justify-content: center; margin-top: 0;}"
+      ],
       "settings": {
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
@@ -27,20 +30,9 @@
         "padding_top": 16,
         "padding_bottom": 16
       }
-    },
-    "custom_liquid_8ACkVB": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "<div class=\"footer-ra-seal-wrapper\">\n  <div id=\"ra-verified-seal\">\n    <script type=\"text/javascript\" id=\"ra-embed-verified-seal\" src=\"https://s3.amazonaws.com/raichu-beta/ra-verified/bundle.js\" data-id=\"VTgyeFUwNzBrZjhyalBqRTp2YWxlbi1jb21lcmNpby1kZS1yb3VwYXM=\" data-target=\"ra-verified-seal\" data-model=\"horizontal_1\"></script>\n  </div>\n</div>\n\n<style>\n  .footer-ra-seal-wrapper {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    padding-top: 1rem;\n    opacity: 0.85; /* Atenua o contraste de cores externas */\n    transition: opacity 0.4s ease;\n  }\n  \n  .footer-ra-seal-wrapper:hover {\n    opacity: 1; /* Retorna ao foco original na interação */\n  }\n\n  @media screen and (max-width: 749px) {\n    .footer-ra-seal-wrapper {\n      justify-content: center; /* Centraliza no mobile */\n      padding-top: 2rem;\n      padding-bottom: 2rem;\n    }\n  }\n</style>",
-        "color_scheme": "scheme-4",
-        "padding_top": 0,
-        "padding_bottom": 4
-      }
     }
   },
   "order": [
-    "footer",
-    "custom_liquid_8ACkVB"
+    "footer"
   ]
 }
