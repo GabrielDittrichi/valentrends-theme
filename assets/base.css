@@ -627,7 +627,7 @@ h3 .icon-arrow,
 /* arrow animation */
 .animate-arrow .icon-arrow path {
   transform: translateX(-0.25rem);
-  transition: transform 0.8s ease;
+  transition: transform 0.5s ease;
 }
 
 .animate-arrow:hover .icon-arrow path {
@@ -1221,7 +1221,7 @@ button.shopify-payment-button__button--unbranded {
   font-size: 1.5rem;
   text-decoration: none;
   color: rgb(var(--color-button-text));
-  transition: box-shadow 0.8s ease;
+  transition: box-shadow 0.5s ease;
   -webkit-appearance: none;
   appearance: none;
   background-color: rgba(var(--color-button), var(--alpha-button-background));
@@ -1258,7 +1258,7 @@ button.shopify-payment-button__button--unbranded {
   box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
       rgba(var(--color-button-text), var(--border-opacity)),
     0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
-  transition: box-shadow 0.8s ease;
+  transition: box-shadow 0.5s ease;
 }
 
 .button:not([disabled]):hover::after,
@@ -1444,7 +1444,7 @@ details[open] > .share-button__fallback {
   border: 0.1rem solid transparent;
   border-radius: var(--inputs-radius);
   box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
-  transition: box-shadow 0.8s ease;
+  transition: box-shadow 0.5s ease;
   z-index: 1;
 }
 
@@ -1577,7 +1577,7 @@ details[open] > .share-button__fallback {
   font-size: 1.6rem;
   width: 100%;
   box-sizing: border-box;
-  transition: box-shadow 0.8s ease;
+  transition: box-shadow 0.5s ease;
   border-radius: var(--inputs-radius);
   height: 4.5rem;
   min-height: calc(var(--inputs-border-width) * 2);
@@ -1619,7 +1619,7 @@ details[open] > .share-button__fallback {
   border: 0.1rem solid transparent;
   border-radius: var(--inputs-radius);
   box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
-  transition: box-shadow 0.8s ease;
+  transition: box-shadow 0.5s ease;
   z-index: 1;
 }
 
@@ -1702,7 +1702,7 @@ details[open] > .share-button__fallback {
   position: relative;
   width: 100%;
   display: flex;
-  transition: box-shadow 0.8s ease;
+  transition: box-shadow 0.5s ease;
 }
 
 .customer .field {
@@ -1719,7 +1719,7 @@ details[open] > .share-button__fallback {
   text-align: left;
   padding: 1.5rem;
   margin: var(--inputs-border-width);
-  transition: box-shadow 0.8s ease;
+  transition: box-shadow 0.5s ease;
 }
 
 .field__label,
@@ -1730,7 +1730,7 @@ details[open] > .share-button__fallback {
   margin-bottom: 0;
   pointer-events: none;
   position: absolute;
-  transition: top 0.8s ease, font-size 0.8s ease;
+  transition: top 0.5s ease, font-size 0.5s ease;
   color: rgba(var(--color-foreground), 0.75);
   letter-spacing: 0.1rem;
   line-height: 1.5;
@@ -1894,7 +1894,7 @@ input[type='checkbox'] {
   border: 0.1rem solid transparent;
   border-radius: var(--inputs-radius);
   box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
-  transition: box-shadow 0.8s ease;
+  transition: box-shadow 0.5s ease;
   z-index: 1;
 }
 
@@ -2802,7 +2802,7 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item span {
-  transition: text-decoration 0.8s ease;
+  transition: text-decoration 0.5s ease;
 }
 
 .header__menu-item:hover span {
@@ -2823,7 +2823,7 @@ details[open] > .header__menu-item .icon-caret {
 }
 
 .header__active-menu-item {
-  transition: text-decoration-thickness 0.8s ease;
+  transition: text-decoration-thickness 0.5s ease;
   color: rgb(var(--color-foreground));
   text-decoration: underline;
   text-underline-offset: 0.3rem;
@@ -3165,7 +3165,7 @@ details-disclosure > details {
   color: rgba(var(--color-link), var(--alpha-link));
   text-underline-offset: 0.3rem;
   text-decoration-thickness: 0.1rem;
-  transition: text-decoration-thickness 0.8s ease;
+  transition: text-decoration-thickness 0.5s ease;
 }
 
 .rte a:hover {
@@ -3239,7 +3239,7 @@ details-disclosure > details {
 
 .animate--zoom-in > img,
 .animate--zoom-in > .svg-wrapper {
-  transition: scale 0.8s linear;
+  transition: scale 0.5s linear;
   scale: var(--zoom-in-ratio);
 }
 
