@@ -14,7 +14,7 @@
     "footer": {
       "type": "footer",
       "custom_css": [
-        "div {justify-content: center; margin-top: 0;}"
+        "div {justify-content: center; margin-top: 0.1rem;}"
       ],
       "settings": {
         "color_scheme": "scheme-4",
